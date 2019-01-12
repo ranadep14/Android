@@ -1,0 +1,236 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="700dp"
+    android:orientation="vertical"
+    android:id="@+id/lin_main"
+    android:background="@color/dialog_bg"
+    android:layout_height="wrap_content">
+    <SeekBar
+        android:id="@+id/seek_light_brightness"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/img_add_fav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lin_scene_selection"></LinearLayout>
+    <TextView
+        android:layout_centerVertical="true"
+        android:gravity="left"
+        android:visibility="gone"
+        android:id="@+id/txt_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/all_text_size_portrait"
+        android:singleLine="true"
+        android:text="Bedside Lamps"
+        tools:ignore="ObsoleteLayoutParam" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/txt_room_name"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textColor="@color/white"
+        android:textSize="@dimen/all_text_size"
+        android:singleLine="true"
+        android:text="Master Bedroom"
+        android:layout_below="@+id/txt_title"
+        tools:ignore="ObsoleteLayoutParam" />
+    <Switch
+        android:thumb="@drawable/on_off_thumb"
+        android:id="@+id/light_on_off"
+        android:checked="true"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/all_text_size"
+        android:background="@null"
+        android:id="@+id/btn_cancel"
+        android:text="Cancel"
+        android:textAllCaps="false"
+        android:textColor="#FF5495DF"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+
+            android:layout_margin="10dp"
+            android:id="@+id/img_close"
+            android:layout_alignParentRight="true"
+            android:layout_width="@dimen/icon_height_size"
+            android:layout_height="@dimen/icon_height_size"
+            android:padding="12dp"
+            app:srcCompat="@drawable/ic_close"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="10dp"
+            android:textSize="@dimen/title_text_size"
+            android:textColor="@color/white"
+            android:text="Light Mode"
+            tools:ignore="ObsoleteLayoutParam" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:layout_marginTop="@dimen/icon_height_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
+        <LinearLayout
+
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+            <ImageView
+                android:id="@+id/img_circadian"
+                android:layout_width="@dimen/actionbar_height"
+                android:layout_height="@dimen/actionbar_height"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/ic_circadian_white"
+                android:background="@drawable/blue_border_circle"/>
+            <TextView
+                android:id="@+id/txt_circadian"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/all_text_size"
+                android:text="Circadian"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+            <ImageView
+                android:padding="5dp"
+                android:id="@+id/img_energize"
+                android:layout_width="@dimen/actionbar_height"
+                android:layout_height="@dimen/actionbar_height"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/ic_energize"
+                android:background="@drawable/blue_border_circle"/>
+            <TextView
+                android:id="@+id/txt_energize"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/all_text_size"
+                android:gravity="center_horizontal"
+                android:text="Energise"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+            <ImageView
+                android:id="@+id/img_relax"
+                android:layout_width="@dimen/actionbar_height"
+                android:layout_height="@dimen/actionbar_height"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/ic_relax"
+                android:padding="5dp"
+                android:background="@drawable/blue_border_circle"/>
+            <TextView
+                android:id="@+id/txt_relax"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/all_text_size"
+                android:text="Relax"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lin_cook"
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+            <ImageView
+                android:id="@+id/img_cook"
+                android:layout_width="@dimen/actionbar_height"
+                android:layout_height="@dimen/actionbar_height"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/ic_cook_white"
+                android:padding="5dp"
+                android:background="@drawable/blue_border_circle"/>
+            <TextView
+                android:id="@+id/txt_cooking"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/all_text_size"
+                android:text="@string/cooking_scene"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/icon_height_size"
+        android:layout_marginBottom="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_apply"
+            android:textAllCaps="false"
+            android:layout_width="@dimen/fav_list_item_height_portrait"
+            android:layout_height="@dimen/icon_height_size"
+            android:layout_centerInParent="true"
+            android:text="Apply"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_background_style"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

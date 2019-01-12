@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/transparent"
+    android:layout_width="wrap_content"
+    android:layout_marginRight="20dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_height="90dp">
+
+
+
+    <LinearLayout
+        android:layout_width="800dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+
+        <TextView
+            android:id="@+id/txt_sim_title"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:text=""/>
+        <RelativeLayout
+            android:visibility="visible"
+            android:layout_width="800dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:background="@color/transparent">
+            <LinearLayout
+
+                android:layout_width="800dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start"
+                android:layout_centerInParent="true"
+                android:weightSum="10"
+                tools:ignore="UselessParent">
+                <TextView
+                    android:id="@+id/txt_id"
+                    android:visibility="gone"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="txt_id"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.8"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/txtsim_img"
+                    app:srcCompat="@drawable/square"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.7"
+                    android:gravity="left"
+                    android:layout_marginTop="5dp"
+                    android:text="16:30 am"
+                    android:id="@+id/txt_time"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/h2"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.2"
+                    android:paddingLeft="10dp"
+                    android:id="@+id/txt_room_and_days"
+                    android:textSize="@dimen/all_text_size"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
+                    android:text="Mon, Tue, Wed, Thu, Fri, Sat, Sun"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:layout_weight="1.7"
+                    android:text="Running"
+                    android:visibility="invisible"
+                    android:id="@+id/btn_running"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/all_text_size"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:layout_weight="1.8"
+                    android:text="Edit"
+                    android:id="@+id/btn_edit_sleep"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/all_text_size"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="20dp"
+                    android:layout_marginTop="4dp"
+                    android:thumb="@drawable/on_off_thumb"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/swt_on_off"
+                    android:layout_weight="1.8"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.4dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/off_white_text"/>
+    </LinearLayout>
+
+</LinearLayout>

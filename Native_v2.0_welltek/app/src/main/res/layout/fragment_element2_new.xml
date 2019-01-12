@@ -1,0 +1,90 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.allsimulations.outdooroverlay.progressbarfragment.CO2"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:weightSum="1"
+        tools:ignore="UselessParent">
+
+        <!-- TODO: Update blank fragment layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="4"
+            tools:ignore="UselessParent">
+            <ImageView
+                android:id="@+id/close_nav"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+                android:visibility="gone"
+                android:layout_gravity="end|top|right"
+                android:src="@drawable/ic_dialog_close_light" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/body"
+                android:text="Particulate matter 2.5"
+                android:gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:textAllCaps="true"
+                android:textStyle="bold"/>
+
+
+            <com.github.lzyzsd.circleprogress.DonutProgress
+
+                android:layout_height="135dp"
+                android:layout_width="135dp"
+                android:id="@+id/pm2prog"
+                ProgressWheel:donut_text_color="@color/black"
+                android:layout_centerInParent="true"
+                ProgressWheel:donut_circle_starting_degree="270"
+                ProgressWheel:donut_text="PM2.5"
+                ProgressWheel:donut_progress="0"
+                ProgressWheel:donut_unfinished_color="@color/prog_bar_color"
+                android:layout_gravity="center_horizontal"
+                tools:ignore="ObsoleteLayoutParam" />
+            <TextView
+                android:id="@+id/pm2_5text"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/all_text_size"
+                android:textColor="@color/menu_text_color"
+                android:text="No data available"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_margin="20dp"
+                android:textSize="@dimen/all_text_size"
+                android:gravity="left"
+                android:textAlignment="gravity"
+                android:paddingLeft="25dp"
+                android:paddingRight="20dp"
+                android:scrollbars="vertical"
+                android:textColor="@color/menu_text_color"
+                android:text="@string/pm2_pollutant"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

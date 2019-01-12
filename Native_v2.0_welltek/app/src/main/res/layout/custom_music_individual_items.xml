@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lin_load_music"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@color/fragment_bg_color"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+        android:id="@+id/txt_music_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:layout_margin="10dp"
+        android:id="@+id/img_music_album_art"
+        android:layout_width="@dimen/icon_height_size"
+        android:layout_height="@dimen/icon_height_size"
+        android:layout_gravity="center_vertical"
+        app:srcCompat="@drawable/ic_playlist_default"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+        <TextView
+            android:singleLine="true"
+            android:id="@+id/txt_music_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="sdvsvsvd"
+            android:textSize="@dimen/all_text_size"/>
+
+        <TextView
+            android:id="@+id/txt_music_artist_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_white"
+            android:text="ssdvsdvsdv"
+            android:textSize="@dimen/all_text_size"/>
+
+
+    </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+        <RelativeLayout
+            android:layout_marginLeft="@dimen/icon_height_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            tools:ignore="ObsoleteLayoutParam">
+            <include layout="@layout/line_divider"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

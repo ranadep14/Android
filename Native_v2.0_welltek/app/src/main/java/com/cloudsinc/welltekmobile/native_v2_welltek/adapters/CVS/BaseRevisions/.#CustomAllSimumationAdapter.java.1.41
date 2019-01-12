@@ -1,0 +1,399 @@
+package com.cloudsinc.welltekmobile.native_v2_welltek.adapters;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.Switch;
+import android.widget.TextView;
+import com.cloudsinc.welltekmobile.native_v2_welltek.R;
+import com.cloudsinc.welltekmobile.native_v2_welltek.activities.DawnSimulationPopup;
+import com.cloudsinc.welltekmobile.native_v2_welltek.activities.SleepSimulationPopup;
+import com.cloudsinc.welltekmobile.native_v2_welltek.airwaternotification.NotificationReceiver;
+import com.cloudsinc.welltekmobile.native_v2_welltek.application.App;
+import com.cloudsinc.welltekmobile.native_v2_welltek.fragments.experiences.schedule.Add_custmise_sleep;
+import com.cloudsinc.welltekmobile.native_v2_welltek.fragments.experiences.schedule.Add_custmise_wake;
+import com.cloudsinc.welltekmobile.native_v2_welltek.fragments.experiences.schedule.RemoveNotification;
+import com.cloudsinc.welltekmobile.native_v2_welltek.models.Allsimulations;
+import com.cloudsinc.welltekmobile.native_v2_welltek.models.Room;
+import com.cloudsinc.welltekmobile.native_v2_welltek.sharedprefrences.PrefManager;
+import com.cloudsinc.welltekmobile.native_v2_welltek.utils.AlarmUtils;
+import com.cloudsinc.welltekmobile.native_v2_welltek.utils.JsonObjectCreater;
+import com.cloudsinc.welltekmobile.native_v2_welltek.utils.Logs;
+import com.cloudsinc.welltekmobile.native_v2_welltek.utils.ReplaceFragment;
+import com.cloudsinc.welltekmobile.native_v2_welltek.utils.SwitchTrackChange;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.util.List;
+import static com.cloudsinc.welltekmobile.native_v2_welltek.fragments.elements.rooms.RoomDevicesFragment.getDawnState;
+import static com.cloudsinc.welltekmobile.native_v2_welltek.fragments.elements.rooms.RoomDevicesFragment.getSleepState;
+class CustomAllSimumationAdapter extends RecyclerView.Adapter<CustomAllSimumationAdapter.CustomViewHolder> {
+    private List<Allsimulations> allsimulationsList;
+    private Context activity;
+    private static LayoutInflater inflater = null;
+    String room_id;
+    String room_title = "";
+    Fragment fragment;
+    View vi;
+    Room room;
+    String TAG = CustomAllSimumationAdapter.this.getClass().getName();
+    Allsimulations simi;
+    CustomAllSimumationAdapter(Context a, List<Allsimulations> allsimulationsList, String room_id, Fragment fragment) {
+        this.allsimulationsList = allsimulationsList;
+        this.fragment=fragment;
+        activity = a;
+        this.room_id = room_id;
+    }
+    class CustomViewHolder extends RecyclerView.ViewHolder {
+        TextView txt_time;
+        TextView txt_id;
+        TextView txt_room_and_days;
+        TextView txt_sim_title;
+        Button btn_running;
+        ImageView txtsim_img;
+        Switch simstatus;
+        Button btn_edit_sim;
+        // Button btn_Running_sleep;
+        CustomViewHolder(View view) {
+            super(view);
+            txt_time = view.findViewById(R.id.txt_time); // title
+            txt_id = view.findViewById(R.id.txt_id); // title
+            txt_room_and_days = view.findViewById(R.id.txt_room_and_days); // artist name
+            txt_sim_title = view.findViewById(R.id.txt_sim_title);
+            txtsim_img = view.findViewById(R.id.txtsim_img);
+            simstatus = view.findViewById(R.id.swt_on_off);
+            btn_edit_sim = view.findViewById(R.id.btn_edit_sleep);
+            btn_running = view.findViewById(R.id.btn_running);
+            //  btn_Running_sleep = view.findViewById(R.id.btn_Running_sleep);
+       /*     mListener = listener;
+            btn_edit_sim.setOnClickListener(this);
+*/
+        }
+    }
+    @Override
+    public void onBindViewHolder(final CustomViewHolder holder, int position) {
+        final Allsimulations simi = allsimulationsList.get(position);
+        holder.txt_time.setText("" + simi.get_time().toLowerCase());
+        holder.txt_id.setText("" + simi.get_sim_id());
+        holder.txt_sim_title.setText("" + simi.get_sim_id());
+        holder.simstatus.setChecked(simi.get_switch_state());
+        SwitchTrackChange.changeTrackColor(activity, holder.simstatus);
+        holder.txt_room_and_days.setText("" + simi.get_days().trim());
+        final String sim_id[] = simi.get_sim_id().split("#");
+        switch (sim_id[0]) {
+            case "sleep":
+                getSleepState(room_id,simi.get_sim_id(),holder.btn_running);
+                holder.txtsim_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.sleep_new));
+                break;
+            case "dawn":
+                String operation_status=getDawnState(room_id,simi.get_sim_id());
+                holder.btn_running.setText(operation_status);
+                holder.btn_running.setVisibility(!operation_status.equals("no_operation")?View.VISIBLE:View.INVISIBLE);
+                holder.txtsim_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.wake_new_sim));
+                break;
+        }
+        holder.simstatus.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged (CompoundButton buttonView,boolean isChecked){
+                try {
+                    JSONArray jsonArray = App.getAllSimulationData().getJSONArray("data");
+                    // Log.e("")
+                    JSONObject resultedJsonObject = null;
+                    if (isChecked == true) {
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            try {
+                                SwitchTrackChange.changeTrackColor(activity, holder.simstatus);
+                                switch (sim_id[0]) {
+                                    case "sleep":
+                                        if (jsonObject.getString("CML_ID").equals(holder.txt_id.getText().toString())) {
+                                            resultedJsonObject = jsonObject;
+                                            // jsonObject.put("status",true);
+                                            App.getSocket().emit("action", JsonObjectCreater.getJsonObject("trigger_sleep_simulation", resultedJsonObject.put("status", true)));
+
+
+                                            JSONObject dataObject=new JSONObject();
+
+
+
+                                            dataObject.put("hour",resultedJsonObject.getInt("hour"));
+                                            dataObject.put("minutes",resultedJsonObject.getInt("minutes"));
+                                            dataObject.put("Id",resultedJsonObject.getString("CML_ID"));
+                                            dataObject.put("ACTIVE_STATUS","1");
+                                            dataObject.put("type","Sleep");
+                                            dataObject.put("roomId",resultedJsonObject.getString("room"));
+                                            dataObject.put("days",resultedJsonObject.getJSONArray("days"));
+
+
+                                            JSONObject obj = new JSONObject();
+                                            obj.put("data", dataObject);
+                                            obj.put("type", "set_notification");
+                                            App.getSocket().emit("action", obj);
+                                            Log.d("create_sleep_sim : ","" +obj);
+
+
+                                        }
+                                        break;
+                                    case "dawn":
+                                        if (jsonObject.getString("CML_ID").equals(holder.txt_id.getText().toString())) {
+                                            resultedJsonObject = jsonObject;
+                                            // jsonObject.put("status",true);
+                                            App.getSocket().emit("action", JsonObjectCreater.getJsonObject("trigger_dawn_simulation", resultedJsonObject.put("status", true)));
+
+                                            JSONObject obj = new JSONObject();
+                                            obj.put("hour",resultedJsonObject.getInt("hour"));
+                                            obj.put("minutes",resultedJsonObject.getInt("minutes"));
+                                            obj.put("Id",resultedJsonObject.getString("CML_ID"));
+                                            obj.put("ACTIVE_STATUS","1");
+                                            obj.put("type","Dawn");
+                                            obj.put("roomId",resultedJsonObject.getString("room"));
+                                            obj.put("days",resultedJsonObject.getJSONArray("days"));
+
+                                            JSONObject objjj = new JSONObject();
+                                            objjj.put("data", obj);
+                                            objjj.put("type", "set_notification");
+                                            App.getSocket().emit("action", objjj);
+                                            Log.d(TAG,"obj_create_dawn_sim : " +objjj);
+                                        }
+                                        break;
+                                }
+                            } catch (Exception ex) {
+                                Logs.error(TAG + "CheckON",""+ ex.getMessage());
+                            }
+                        }
+                    } else {
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            try {
+                                switch (sim_id[0]) {
+                                    case "sleep":
+                                        if (jsonObject.getString("CML_ID").equals(holder.txt_id.getText().toString())) {
+                                            resultedJsonObject = jsonObject;
+                                            jsonObject.put("status", false);
+                                            Logs.info(TAG + "_halt_sleep_simulation", "" + resultedJsonObject);
+                                            new PrefManager(activity).setValue("sleep_notification", "0");   // switch off
+                                            App.getSocket().emit("action", JsonObjectCreater.getJsonObject("halt_sleep_simulation", resultedJsonObject));
+                                            RemoveNotification.removeSpecificSleepNotification(activity,""+jsonObject.getString("CML_ID"));
+                                        }
+                                        break;
+                                    case "dawn":
+                                        if (jsonObject.getString("CML_ID").equals(holder.txt_id.getText().toString())) {
+                                            resultedJsonObject = jsonObject;
+                                            jsonObject.put("status", false);
+                                            Logs.info(TAG + "_halt_dwan_simulation", "" + resultedJsonObject);
+                                            App.getSocket().emit("action", JsonObjectCreater.getJsonObject("halt_dawn_simulation", resultedJsonObject));
+
+                                            RemoveNotification.removeSpecificDawnNotification(activity,""+jsonObject.getString("CML_ID"));
+                                        }
+                                        break;
+                                }
+                            } catch (Exception ex) {
+                                Logs.error(TAG + "CheckOFF", ""+ex.getMessage());
+                            }
+                        }
+                    }
+                } catch (Exception ex) {
+                    Logs.error(TAG + "_FSleepAdpSimulationError", ex.getMessage());
+                }
+            }
+        });
+        holder.btn_running.setTag(position);
+       // holder.btn_running.setText();
+        holder.btn_edit_sim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                String sim_id[] = holder.txt_id.getText().toString().split("#");
+                Logs.error(TAG+"_FSimulationId", "" + sim_id[0]);
+                switch (sim_id[0]) {
+                    case "sleep":
+                        try {
+                            App.getSocket().emit("action", JsonObjectCreater.getJsonObject("get_sleep_simulations", new JSONObject().put("roomId", room_id)));
+                        } catch (JSONException e) {
+                            Logs.error(TAG+"_FError in All Sim", "Sleep request");
+                        }
+                        bundle.putString("actionn", "delete_or_updatee");
+                        bundle.putString("sleepsimulation_id", holder.txt_id.getText().toString());
+                        bundle.putString("sleepCallfrom", "edit");
+                        bundle.putString("room_id", room_id);
+                        room_title = ("" + getRoomTitle(room_id));
+                        bundle.putString("room_title", room_title);
+                        bundle.putString("sleep_id", simi.get_sim_id());
+                        App.setTemp_bundle(bundle);
+                        if (App.isOrientationFlag())
+                            ReplaceFragment.replaceFragment(fragment, R.id.frm_expriencesmain_container, Add_custmise_sleep.newInstance());
+                        else
+                            ReplaceFragment.replaceFragment(fragment, R.id.frm_main_container, Add_custmise_sleep.newInstance());
+                        break;
+                    case "dawn":
+                        try {
+                            App.getSocket().emit("action", JsonObjectCreater.getJsonObject("get_dawn_simulations", new JSONObject().put("roomId", room_id)));
+                        } catch (JSONException e) {
+                            Logs.error(TAG+"_FError in All Sim", "Dawn request");
+                        }
+                        bundle.putString("action", "delete_or_update");
+                        bundle.putString("update", "update");
+                        bundle.putString("simulation_id", holder.txt_id.getText().toString());
+                        bundle.putString("Callfrom", "edit");
+                        bundle.putString("room_id", room_id);
+                        bundle.putString("room_title", "" + getRoomTitle(room_id));
+                        if (getCnt_blinds(room_id) > 0) bundle.putBoolean("has_blinds", true);
+                        else bundle.putBoolean("has_blinds", false);
+                        if (getCnt_music(room_id) > 0) bundle.putBoolean("has_music", true);
+                        else bundle.putBoolean("has_music", false);
+                        App.setTemp_bundle(bundle);
+                        if (App.isOrientationFlag())
+                            ReplaceFragment.replaceFragment(fragment, R.id.frm_expriencesmain_container, Add_custmise_wake.newInstance());
+                        else
+                            ReplaceFragment.replaceFragment(fragment, R.id.frm_main_container, Add_custmise_wake.newInstance());
+                        break;
+                }
+            }
+        });
+    }
+
+    private boolean getSleepRunningState(String room_id,String sleep_id) {
+        return true;
+    }
+
+    @Override
+    public int getItemCount() {
+        return allsimulationsList.size();
+    }
+    @Override
+    public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.all_sim_list_item, parent, false);
+        return new CustomViewHolder(view);
+    }
+    public static String getRoomTitle(String room_id)
+    {
+        String room_title="";
+        try {
+            JSONArray jsonArray = App.getRoomData().getJSONArray("data");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                if (jsonObject.getString("CML_ID").equals(room_id)) {
+                    room_title = jsonObject.getString("CML_TITLE");
+                }
+            }
+        }
+        catch (Exception ex){ Logs.error("BlindListAdapter"+"_FError",ex.getMessage());}
+        return room_title;
+    }
+    public int getCnt_blinds(String room_id)
+    {
+        int temp=0;
+        try {
+            JSONArray jsonArray = App.getRoomData().getJSONArray("data");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                if (jsonObject.getString("CML_ID").equals(room_id)) {
+                    if(jsonObject.has("HAS_BLIND"))  temp = jsonObject.getInt("HAS_BLIND");
+                }
+            }
+        }
+        catch (Exception ex){ Logs.error(TAG+"_FError",ex.getMessage());}
+        return temp;
+    }
+    public int getCnt_music(String room_id)
+    {
+        int temp=0;
+        try {
+            JSONArray jsonArray = App.getRoomData().getJSONArray("data");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                if (jsonObject.getString("CML_ID").equals(room_id)) {
+                    if(jsonObject.has("HAS_MUSIC"))  temp = jsonObject.getInt("HAS_MUSIC");
+                }
+            }
+        }
+        catch (Exception ex){ Logs.error(TAG+"_FError",ex.getMessage());}
+        return temp;
+    }
+    public void reload(List<Allsimulations> myDataset)
+    {
+        this.allsimulationsList=myDataset;
+    }
+
+    private String getDawnState(String room_id,String dawn_id)
+    {
+        String temp_str_running="no_operation",temp_str_snoozed="no_operation";
+        try {
+            JSONArray jsonArray = App.getRoomData().getJSONArray("data");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                boolean running_flag=false,snoozed_flag=false;
+                if(jsonObject.getString("CML_ID").equals(room_id))
+                {
+                    if(jsonObject.has("DAWN_ID")) {
+                        if (jsonObject.getString("DAWN_ID").equals(dawn_id)) {
+                            if (jsonObject.has("DAWN_RUNNING")) {
+                                temp_str_running=jsonObject.getBoolean("DAWN_RUNNING")?"Running":"no_operation";
+                                running_flag=jsonObject.getBoolean("DAWN_RUNNING");
+
+
+                            }
+                            if (jsonObject.has("DAWN_SNOOZED")) {
+                                temp_str_snoozed=jsonObject.getBoolean("DAWN_SNOOZED")?"Snoozed":"no_operation";
+                                snoozed_flag=jsonObject.getBoolean("DAWN_SNOOZED");
+                            }
+                            if(snoozed_flag)return temp_str_snoozed;
+                            if(running_flag)return temp_str_running;
+
+
+                        }
+
+
+
+                    }
+
+
+
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Logs.error("RoomDevicesFrag_DawnRunninError",""+ex.getMessage());
+        }
+        return  "no_operation";
+    }
+    private boolean getSleepState(String room_id,String sleep_id,Button btn_running)
+    {
+        System.out.println("*****************************"+room_id+"*******************"+sleep_id+"**************");
+        boolean b=false;
+        try {
+            JSONArray jsonArray = App.getRoomData().getJSONArray("data");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                Boolean dawn_flag=false;
+                if(jsonObject.getString("CML_ID").equals(room_id))
+                {
+                    if(jsonObject.has("SLEEP_ID")) {
+                        if (jsonObject.getString("SLEEP_ID").equals(sleep_id)) {
+                            if (jsonObject.has("SLEEP_RUNNING")) {
+                                dawn_flag=jsonObject.getBoolean("SLEEP_RUNNING");
+                                btn_running.setText(dawn_flag?"Running":"no_operation");
+                            }
+                            btn_running.setVisibility(dawn_flag?View.VISIBLE:View.INVISIBLE);
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Logs.error("RoomDevicesFrag_DawnRunninError",""+ex.getMessage());
+        }
+        return  b;
+    }
+}

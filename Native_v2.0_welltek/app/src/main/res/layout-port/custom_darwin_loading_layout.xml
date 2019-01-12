@@ -1,0 +1,22 @@
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/rel_loading"
+android:layout_gravity="center_horizontal"
+android:layout_width="100dp"
+android:background="@color/transparent"
+android:layout_centerInParent="true"
+android:layout_height="100dp">
+
+<ProgressBar
+    android:layout_centerInParent="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:indeterminateDrawable="@drawable/loading_circle_shape"
+    android:indeterminate="true"
+    />
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp"
+    android:src="@drawable/app_logo_transperant"/>
+</RelativeLayout>

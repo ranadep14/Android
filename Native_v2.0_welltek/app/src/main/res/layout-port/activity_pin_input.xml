@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/inistial_bg_color"
+    tools:context="com.cloudsinc.welltekmobile.native_v2_welltek.activities.PinInputActivity">
+
+
+
+       <RelativeLayout
+           android:layout_width="500dp"
+           android:layout_centerInParent="true"
+           android:layout_height="400dp">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="@dimen/heading_text_size"
+               android:layout_centerHorizontal="true"
+               android:textColor="@color/white"
+               android:layout_marginTop="@dimen/setting_item_size"
+               android:text="@string/pin_enter_screen_title"/>
+    <com.poovam.pinedittextfield.SquarePinField
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:lineThickness="2dp"
+        app:fieldColor="#ffffff"
+        app:highlightColor="@color/white"
+        app:noOfFields="6"
+        android:id="@+id/linePinField"
+        android:textColor="@color/white"
+        android:layout_marginTop="15dp"/>
+
+
+
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/setting_item_size"
+        android:background="@drawable/btn_border_white"
+        android:text="@string/store_btn"/>
+       </RelativeLayout>
+
+</RelativeLayout>

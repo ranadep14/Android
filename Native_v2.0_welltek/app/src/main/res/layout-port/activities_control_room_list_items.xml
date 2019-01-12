@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app2="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/fragment_back_color">
+
+    <LinearLayout
+        android:weightSum="360"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:baselineAligned="false"
+        tools:ignore="UselessParent">
+        <LinearLayout
+            android:layout_weight="55"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="UselessParent">
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:padding="5dp"
+                    android:id="@+id/img_favorate_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app2:srcCompat="@drawable/heart_outline_pink"
+                    tools:ignore="MissingPrefix" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="305"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:weightSum="100"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="UselessParent">
+                               <LinearLayout
+                    android:layout_weight="97"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                                   android:baselineAligned="false">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="85"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        tools:ignore="NestedWeights">
+                        <TextView
+                            android:id="@+id/experinces_activities_room_name"
+                            android:gravity="center_vertical"
+                            android:textSize="@dimen/all_text_size_item_heading"
+                            android:text="Master bedroom"
+                            android:textColor="@color/white"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="15"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            tools:ignore="UselessParent">
+                            <CheckBox
+                                android:id="@+id/check_experinces_activities_room"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:focusable="false"
+                                android:clickable="false"
+                                android:buttonTint="@color/dialer_selected_color"
+                                tools:targetApi="lollipop" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:background="@color/divider_color"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"></LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

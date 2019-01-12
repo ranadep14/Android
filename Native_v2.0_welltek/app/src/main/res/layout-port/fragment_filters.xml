@@ -1,0 +1,312 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragment_bg_color"
+    xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+    tools:context="com.cloudsinc.welltekmobile.native_v2_welltek.fragments.filter_settings.filters.FiltersFragment">
+
+
+    <include layout="@layout/customise_sub_action_bar"/>
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/no_filters"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="@dimen/all_text_size"
+        android:textColor="@color/white"
+        android:text="No Filters Available"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/lytmainfont"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="30dp"
+        android:weightSum="2">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:layout_marginTop="30dp"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/txt_no_air"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/all_text_size"
+        android:text="No Air Filter Available "
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/air_progress_bar">
+
+        <include layout="@layout/custom_darwin_loading_layout"/>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="30dp"
+        android:weightSum="2"
+        android:visibility="gone"
+        android:id="@+id/lyt_linn_air_filter"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        tools:ignore="NestedWeights">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:weightSum="5"
+            tools:ignore="NestedWeights">
+            <TextView
+                android:id="@+id/txt_air_title"
+                android:text="Air Filter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left|center_vertical"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:layout_weight="4"
+                tools:ignore="NestedWeights" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2">
+
+
+
+
+            <com.github.lzyzsd.circleprogress.DonutProgress
+                android:id="@+id/prog_air_filter"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="10dp"
+                ProgressWheel:donut_finished_stroke_width="5dp"
+                ProgressWheel:donut_unfinished_stroke_width="5dp"
+                android:padding="40dp"
+                android:layout_marginLeft="10dp"
+                ProgressWheel:donut_circle_starting_degree="270"
+                ProgressWheel:donut_progress="0"
+                ProgressWheel:donut_text=""
+                ProgressWheel:donut_text_color="@color/white"
+                ProgressWheel:donut_text_size="30dp"
+                ProgressWheel:donut_unfinished_color="#5F6B85"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_centerInParent="true"
+                tools:ignore="UselessParent">
+                <TextView
+                    android:id="@+id/txt_air_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:paddingLeft="5dp"
+
+                    android:gravity="left|center_vertical"
+                    android:text="TIME REMAINING"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/all_text_size" />
+
+                <TextView
+                    android:id="@+id/txt_air_days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:paddingLeft="5dp"
+                    android:gravity="left"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="24dp" />
+
+
+
+                <Button
+                    android:id="@+id/btn_air_purchase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/purchase_buttonshape"
+                    android:text="Purchase"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="20dp"
+
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/all_text_size"
+            android:id="@+id/txt_no_water"
+            android:text="No Water Filter Available "
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/water_progress_bar">
+
+            <include layout="@layout/custom_darwin_loading_layout"/>
+
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="30dp"
+            android:weightSum="2"
+            android:visibility="gone"
+            android:id="@+id/lyt_linn_water_filter"
+            android:orientation="horizontal"
+            android:baselineAligned="false"
+            tools:ignore="NestedWeights">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:weightSum="5"
+                tools:ignore="NestedWeights">
+                <TextView
+                    android:id="@+id/txt_water_title"
+                    android:text="Water Filter"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center_vertical"
+                    android:layout_marginLeft="20dp"
+
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:layout_weight="4"
+                    tools:ignore="NestedWeights" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.3">
+
+
+
+
+                    <com.github.lzyzsd.circleprogress.DonutProgress
+                        android:id="@+id/prog_water_filter"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_marginTop="10dp"
+                        ProgressWheel:donut_finished_stroke_width="5dp"
+                        ProgressWheel:donut_unfinished_stroke_width="5dp"
+                        android:padding="40dp"
+                        android:layout_marginLeft="10dp"
+                        ProgressWheel:donut_circle_starting_degree="270"
+                        ProgressWheel:donut_progress="0"
+                        ProgressWheel:donut_text=""
+                        ProgressWheel:donut_text_color="@color/white"
+                        ProgressWheel:donut_text_size="30dp"
+                        ProgressWheel:donut_unfinished_color="#5F6B85"/>
+                </RelativeLayout>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_centerInParent="true"
+                        tools:ignore="UselessParent">
+                        <TextView
+                            android:id="@+id/txt_water_txt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:paddingLeft="5dp"
+                            android:gravity="left|center_vertical"
+                            android:text="TIME REMAINING"
+                            android:paddingBottom="10dp"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/all_text_size" />
+
+                        <TextView
+                            android:id="@+id/txt_water_days"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:gravity="left"
+                            android:paddingLeft="5dp"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="24dp" />
+
+
+
+                        <Button
+                            android:id="@+id/btn_water_purchase"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center|bottom"
+                            android:layout_marginTop="40dp"
+                            android:background="@drawable/purchase_buttonshape"
+                            android:text="Purchase"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginRight="20dp"
+
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+        </LinearLayout>
+        <!-- # -->
+
+</FrameLayout>

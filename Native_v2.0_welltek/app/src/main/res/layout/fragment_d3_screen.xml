@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:maxHeight="1000dp"
+    android:maxWidth="5000dp"
+    android:weightSum="100">
+
+    <!--
+        CODE FOR PORTRAIT LAYOUT STARTS HERE
+        Mobile screen
+    -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/transparent"
+        android:weightSum="640">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:background="@color/transparent"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="540"
+            android:background="@color/transparent"
+            android:orientation="horizontal"
+            android:weightSum="360">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:layout_weight="8"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="344">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical"
+                        android:weightSum="540">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:weightSum="3"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:text="AQI Score"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+
+                                android:orientation="vertical">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    >
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:layout_weight="1">
+                                        <TextView
+                                            android:padding="5dp"
+                                            android:layout_gravity="center_horizontal"
+                                            android:id="@+id/txt_time"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_centerHorizontal="true"
+                                            android:text="MAY 9 , "
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content" />
+                                        <TextView
+                                            android:textSize="@dimen/h2"
+                                            android:layout_gravity="center_horizontal"
+                                            android:text="Indoor Air Quality"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"/>
+
+                                        <TextView
+                                            android:textSize="@dimen/h2"
+                                            android:layout_gravity="center_horizontal"
+                                            android:text=""
+                                            android:id="@+id/zone_name"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"/>
+
+                                    </LinearLayout>
+
+                                    <ImageView
+                                        android:id="@+id/img_close"
+                                        android:layout_width="30dp"
+                                        android:layout_height="35dp"
+                                        android:layout_gravity="right"
+                                        android:src="@drawable/ic_dialog_close_light" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+
+                                    android:orientation="horizontal">
+
+                                    <android.support.design.widget.TabLayout
+                                        android:id="@+id/tabs"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        app:tabGravity="center"
+                                        app:tabIndicatorColor="@color/dialer_selected_color"
+                                        app:tabMode="fixed">
+
+                                        <android.support.design.widget.TabItem
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="CO2" />
+
+                                        <android.support.design.widget.TabItem
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="PM2.5" />
+                                        <android.support.design.widget.TabItem
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="PM10" />
+                                        <android.support.design.widget.TabItem
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="TVOC" />
+                                        <!-- <android.support.design.widget.TabItem
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:visibility="gone"
+                                             android:text="HEALTH" />-->
+                                        <android.support.design.widget.TabItem
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="TEMPERATURE" />
+                                        <android.support.design.widget.TabItem
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="HUMIDITY" />
+
+                                    </android.support.design.widget.TabLayout>
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+
+                                    <FrameLayout
+                                        android:id="@+id/fragment_container_d3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:visibility="visible">
+
+                                    </FrameLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:background="@color/transparent"/>
+        </LinearLayout>
+
+
+        <!-- <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="0dp"
+             android:layout_weight="60"
+             android:background="@color/transparent"/>-->
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/current_d3"
+        android:layout_gravity="bottom|center_horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="Current"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:textColor="#ff669bce"
+        android:textSize="@dimen/all_text_size"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lin_activity_main"
+        android:orientation="vertical"/>
+
+
+</RelativeLayout>
+

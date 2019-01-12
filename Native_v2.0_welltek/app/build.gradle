@@ -1,0 +1,119 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        renderscriptTargetApi 24
+        renderscriptSupportModeEnabled true
+        vectorDrawables.useSupportLibrary = true
+        applicationId "com.cloudsinc.welltekmobile.native_v2_welltek"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 76
+        versionName "v2.0.76_"
+        multiDexEnabled = true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            // minifyEnabled true
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    dependencies {
+
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        compile('io.socket:socket.io-client:1.0.0') {
+            // excluding org.json which is provided by Android
+            exclude group: 'org.json', module: 'json'
+        }
+
+        //releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+        compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+            transitive = true
+        }
+        compile 'com.google.android.gms:play-services-analytics:10.2.4'
+
+        compile 'com.wonderkiln:blurkit:1.0.0'
+        // Standard -- not recommended!
+        implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+        compile 'com.github.Todd-Davies:ProgressWheel:1.2'
+        compile 'com.github.Todd-Davies:ProgressWheel:1.2'
+        //noinspection GradleCompatible
+        compile 'com.android.support:appcompat-v7:26.0.0'
+        compile 'com.google.code.gson:gson:2.8.2'
+        compile 'com.android.support:design:26.0.0'
+        compile 'com.android.support.constraint:constraint-layout:1.0.2'
+        compile 'com.github.curioustechizen.android-ago:library:1.3.4'
+        compile 'com.jakewharton:butterknife:8.6.0'
+        compile 'de.hdodenhof:circleimageview:2.2.0'
+        compile 'com.github.bumptech.glide:glide:3.7.0'
+        compile 'com.allenliu.badgeview:library:1.1.1'
+        compile 'io.reactivex:rxandroid:1.2.1'
+        compile 'org.adw.library:discrete-seekbar:1.0.1'
+        compile 'com.android.support:cardview-v7:26.0.0'
+        compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.+'
+        compile 'com.android.support:recyclerview-v7:26.1.0'
+        compile 'com.github.anastr:speedviewlib:1.1.6'
+        compile 'com.yahoo.mobile.client.android.util.rangeseekbar:rangeseekbar-library:0.1.0'
+        compile 'com.github.lzyzsd:circleprogress:1.2.1'
+        compile 'com.labo.kaji:fragmentanimations:0.1.1'
+        compile 'me.tankery.lib:circularSeekBar:1.1.4'
+        implementation 'com.mikhaellopez:circularimageview:3.1.0'
+        compile 'com.android.support:support-v4:26.0.0'
+        compile 'com.xw.repo:bubbleseekbar:3.10-lite'
+        testCompile 'junit:junit:4.12'
+        testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+        annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+        debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+        compile 'com.xiaochencode.percentprogressbar:PercentProgressBar:1.0.0'
+        implementation 'com.poovam:pin-edittext-field:1.1.0'
+        compile 'com.victor:lib:1.0.4'
+        compile project(path: ':library')
+        compile 'com.github.ybq:Android-SpinKit:1.1.0'
+        compile 'devlight.io:arcprogressstackview:1.0.4'
+        compile 'com.jjoe64:graphview:4.2.1'
+        compile 'com.crystal:crystalrangeseekbar:1.1.3'
+        compile 'me.biubiubiu.justifytext:library:1.1'
+        compile 'com.google.android.gms:play-services:11.0.4'
+        compile 'com.google.android.gms:play-services-maps:9.2.0'
+        compile 'com.google.android.gms:play-services-analytics:7.5.0'
+        compile 'com.android.support:multidex:1.0.1'
+        compile 'com.lnikkila:extendedtouchview:0.1.0'
+        compile 'com.github.msayan:otp-view:v1.0.2'
+        compile group: 'org.apache.maven', name: 'maven-artifact', version: '2.0.11'
+        compile 'com.squareup.picasso:picasso:2.5.1'
+
+
+
+        configurations.all {
+            resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+                def requested = details.requested
+                if (requested.group == 'com.android.support') {
+                    if (!requested.name.startsWith("multidex")) {
+                        details.useVersion '26.0.0'
+                    }
+                }
+            }
+        }
+        compile 'com.hypertrack:hyperlog:0.0.9'
+
+
+    }
+}
+

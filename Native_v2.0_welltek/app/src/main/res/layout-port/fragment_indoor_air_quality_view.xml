@@ -1,0 +1,140 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/transparent"
+    android:scaleType="centerCrop">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        tools:ignore="ObsoleteLayoutParam">
+
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="INDOOR AIR QUALITY "
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/all_text_size"
+            />
+
+        <View
+            android:layout_width="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="1dp"
+            android:background="#ffffff"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="center_horizontal"
+            android:text=""
+            android:visibility="visible"
+            android:id="@+id/txt_indoor_quality"
+            android:textColor="@color/white"
+            android:textSize="@dimen/all_text_size_item_heading"
+            android:lineSpacingExtra="@dimen/h_medium_l"
+
+            />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                android:id="@+id/txt_no_indoor"
+                android:gravity="center"
+                android:paddingBottom="30dp"
+                android:textColor="@color/white"
+                android:text="No Data Available"/>
+            <com.github.lzyzsd.circleprogress.DonutProgress
+                android:layout_height="170dp"
+                android:layout_width="170dp"
+                android:id="@+id/indoor_aqi_graph"
+                android:visibility="invisible"
+                app:donut_progress="0"
+                app:donut_text=""
+                android:layout_marginTop="20dp"
+                app:donut_text_size="@dimen/ch2"
+                app:donut_unfinished_stroke_width="8dp"
+                app:donut_finished_stroke_width="8dp"
+                android:layout_marginLeft="20dp"
+                app:donut_text_color="@color/white"
+                app:donut_circle_starting_degree="270"
+                app:donut_inner_bottom_text_color="@color/white"
+                app:donut_finished_color="@color/dialer_selected_color"
+                app:donut_unfinished_color="@color/background"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txt_air_quality"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/all_text_size"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:text="Indoor Air Quality"/>
+
+        <View
+            android:layout_width="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="1dp"
+            android:background="#ffffff"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:textSize="@dimen/all_text_size_item_heading"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:text=""/>
+
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal">
+            <com.github.lzyzsd.circleprogress.DonutProgress
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                app:donut_text=""
+                app:donut_circle_starting_degree="270"
+                app:donut_inner_bottom_text_color="@color/white"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
