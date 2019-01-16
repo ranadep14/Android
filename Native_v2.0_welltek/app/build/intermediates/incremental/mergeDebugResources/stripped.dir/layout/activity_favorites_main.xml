@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragment_bg_color"
+    tools:context="com.cloudsinc.welltekmobile.native_v2_welltek.activities.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/lin_no_data"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center_horizontal"
+            android:padding="35dp"
+            app:srcCompat="@drawable/ic_heart_fill"
+            android:background="@drawable/circular_border_dialer_select"/>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <me.biubiubiu.justifytext.library.JustifyTextView
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/all_text_size"
+                android:textColor="@color/white"
+                android:text="@string/fav_place_holder_title"/>
+            <me.biubiubiu.justifytext.library.JustifyTextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/all_text_size"
+                android:textColor="@color/white"
+                android:text="have any favorites yet."/>
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/all_text_size"
+                android:textColor="@color/light_white"
+                android:text="You can add any Elements to your "/>
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/all_text_size"
+                android:textColor="@color/light_white"
+                android:text="favorites simply by tapping the green heart next to "/>
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/all_text_size"
+                android:textColor="@color/light_white"
+                android:text="the name. If you want to remove something just "/>
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/all_text_size"
+                android:textColor="@color/light_white"
+                android:text="tab the heart again."/>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/custom_darwin_loading_layout"/>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rec_fav"
+            android:layout_marginTop="@dimen/actionbar_height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
+
+
+
+
+
+</RelativeLayout>

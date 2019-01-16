@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/lytmainfont"
+    android:background="@drawable/bed_room_bg">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_gravity="left"
+                    android:layout_width="@dimen/icon_height_size"
+                    android:padding="9dp"
+                    android:layout_height="@dimen/icon_height_size"
+                    android:id="@+id/ic_back"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_alignParentLeft="true"
+                    app:srcCompat="@drawable/ic_left_white" />
+                <LinearLayout
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_bedroom_type" />
+                    <TextView
+                        android:id="@+id/txt_room_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Master Bedroom"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:maxLength="30"
+                        android:textSize="@dimen/ch3"
+                        android:lineSpacingExtra="@dimen/ch3l"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"/>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:layout_margin="20dp"
+                android:weightSum="3">
+
+                <Button
+                    android:id="@+id/today"
+                    android:textColor="@android:color/white"
+                    android:text="Today"
+                    android:textSize="@dimen/body"
+                    android:layout_gravity="center_horizontal"
+                    android:clickable="false"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <com.cloudsinc.welltekmobile.native_v2_welltek.adapters.NonSwipeableViewPager
+                        android:id="@+id/scheduleViewPager"
+                        android:layout_width="match_parent"
+                        android:background="@color/transparent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+                    <!--<android.support.v4.view.ViewPager
+                        android:id="@+id/scheduleViewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+                    </android.support.v4.view.ViewPager>-->
+                    <Button
+                        android:text="previous day"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:id="@+id/left_nav"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|left"
+                        android:textSize="@dimen/body"
+                        android:background="@android:color/transparent"
+                        android:drawableLeft="@drawable/iconleftarrow_24"
+                        android:drawablePadding="10dp"
+                        />
+
+
+                    <Button
+                        android:text="next day"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:id="@+id/right_nav"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|right"
+                        android:textSize="@dimen/body"
+                        android:background="@android:color/transparent"
+                        android:drawableRight="@drawable/iconsrightarrow_24"
+                        android:drawablePadding="10dp"
+
+                        />
+
+                </FrameLayout>
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:visibility="visible"
+                android:id="@+id/lyt_dawn_added">
+
+                <ListView
+                    android:visibility="invisible"
+                    android:id="@+id/lst_sim"
+                    android:layout_marginRight="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:scrollbars="none"
+                    android:clickable="false"
+                    android:layout_marginBottom="30dp"
+                    android:enabled="false"
+                    android:divider="@color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp" />
+                <ListView
+                    android:visibility="invisible"
+                    android:id="@+id/lst_sleep"
+                    android:layout_marginLeft="20dp"
+                    android:paddingLeft="20dp"
+                    android:layout_weight="1"
+                    android:scrollbars="none"
+                    android:clickable="false"
+                    android:layout_marginBottom="30dp"
+                    android:enabled="false"
+                    android:divider="@color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:id="@+id/lyt11"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="It looks like you don't have any \n  experiences scheduled."
+            android:layout_weight="1"
+            android:id="@+id/txt_help1"
+            android:layout_above="@+id/txt_help2"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="@dimen/all_text_size"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="I can help with that."
+            android:id="@+id/txt_help2"
+            android:layout_marginBottom="70dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="@dimen/all_text_size"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_below="@+id/lyt11"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal"
+            android:layout_centerInParent="true">
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/btn_add_wake"
+                android:background="@drawable/btn_border_white"
+                android:text="Set Wake"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="visible"
+                android:textAllCaps="false"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:textSize="@dimen/all_text_size"
+                android:textColor="@color/white"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:id="@+id/btn_add_sleep"
+                android:background="@drawable/btn_border_white"
+                android:text="Set Sleep"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="15dp"
+                android:visibility="visible"
+                android:textAllCaps="false"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:textSize="@dimen/all_text_size"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:id="@+id/wake_circle"
+        app:srcCompat="@drawable/wake_circle"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:visibility="gone"
+        android:layout_weight="1"
+        android:id="@+id/sleep_circle"
+        app:srcCompat="@drawable/sleep_circle"/>
+
+
+
+</RelativeLayout>

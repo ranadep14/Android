@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:weightSum="10">
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"></LinearLayout>
+    <LinearLayout
+        android:weightSum="10"
+        android:layout_weight="8"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:baselineAligned="false">
+            <LinearLayout
+            android:layout_weight="10"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+                tools:ignore="NestedWeights,UselessParent">
+            <android.support.v7.widget.CardView
+                app:cardElevation="15dp"
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:weightSum="10"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:background="@color/fragment_bg_color"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_weight="0.90"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:baselineAligned="false">
+                        <LinearLayout
+                            android:weightSum="100"
+                            android:layout_weight="13"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="100dp"
+                            tools:ignore="NestedWeights,UselessParent">
+                            <FrameLayout
+                                android:layout_weight="40"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                tools:ignore="NestedWeights">
+                                <TextView
+                                    android:layout_gravity="center_horizontal|bottom"
+                                    android:text="CUSTOMIZE WAKE UP ROUTINE"
+                                    android:layout_width="wrap_content"
+                                    android:visibility="gone"
+                                    android:layout_height="wrap_content" />
+                                <ImageButton
+                                    android:id="@+id/cancel"
+                                    android:layout_margin="10dp"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center_vertical|top|right"
+                                    android:background="@drawable/ic_close" />
+
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_weight="40"
+                                android:paddingLeft="60dp"
+                                android:gravity="center_vertical"
+                                android:textSize="28dp"
+                                android:visibility="gone"
+                                android:text="Set Your Wake Up Time"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp" />
+                            <TextView
+                                android:layout_weight="20"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:weightSum="10"
+                        android:layout_weight="7.35"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:baselineAligned="false">
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            tools:ignore="NestedWeights,UselessLeaf"></LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="8"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent">
+                            <com.philliphsu.numberpadtimepicker.NumberPadTimePicker
+                                android:id="@+id/tp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                >
+                            </com.philliphsu.numberpadtimepicker.NumberPadTimePicker>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            tools:ignore="UselessLeaf"></LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_weight="1.75"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        >
+                        <RelativeLayout
+                            android:gravity="center_vertical|center_horizontal"
+                            android:layout_marginTop="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:ignore="UselessParent">
+                            <Button
+                                android:id="@+id/ok"
+                                android:textAllCaps="false"
+                                android:text="Save"
+                                android:textColor="@color/white"
+                                android:textSize="20dp"
+                                android:layout_width="120dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/save_button_selector"/>
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    </LinearLayout>
+
+</LinearLayout>
+    <!--
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="765"
+        >
+        <LinearLayout
+            android:id="@+id/outer_transperant_top"
+            android:layout_weight="30"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"></LinearLayout>
+        <LinearLayout
+            android:weightSum="1365"
+            android:layout_weight="600"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="500dp">
+            <LinearLayout
+                android:id="@+id/outer_transperant_left"
+                android:layout_weight="300"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"></LinearLayout>
+            <LinearLayout
+                android:layout_weight="775"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:weightSum="600"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <LinearLayout
+                            android:layout_weight="130"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp">
+                            <LinearLayout
+                                android:weightSum="100"
+                                android:layout_weight="130"
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <FrameLayout
+                                    android:layout_weight="40"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp">
+                                    <TextView android:id="@+id/cancelString"
+                                        android:layout_gravity="center_horizontal|bottom"
+                                        android:text="CUSTOMIZE WAKE UP ROUTINE"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+                                    <ImageButton
+                                        android:id="@+id/cancel"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical|top|right"
+                                        android:background="@drawable/left" />
+
+                                </FrameLayout>
+
+                            <TextView
+                                android:layout_weight="40"
+                                android:paddingLeft="60dp"
+                                android:gravity="center_vertical"
+                                android:textSize="28dp"
+                                android:text="Set Your Wake Up Time"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp" />
+                                <TextView
+                                    android:layout_weight="20"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:weightSum="3"
+                            android:layout_weight="365"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp">
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"></LinearLayout>
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent">
+                                <com.philliphsu.numberpadtimepicker.NumberPadTimePicker
+                                    android:id="@+id/tp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    >
+                                </com.philliphsu.numberpadtimepicker.NumberPadTimePicker>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"></LinearLayout>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="125"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            >
+                            <RelativeLayout
+                                android:gravity="center_vertical|center_horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <Button
+                                    android:id="@+id/ok"
+                                    android:textAllCaps="false"
+                                    android:text="Save"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp"
+                                    android:layout_width="120dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/save_button_selector"/>
+
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/outer_transperant_right"
+                android:layout_weight="300"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"></LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/outer_transperant_bottom"
+            android:layout_weight="105"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+        </LinearLayout>
+
+    </LinearLayout>-->

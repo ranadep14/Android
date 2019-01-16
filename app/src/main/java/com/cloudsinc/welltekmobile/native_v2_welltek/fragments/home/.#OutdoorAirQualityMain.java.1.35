@@ -1,0 +1,897 @@
+package com.cloudsinc.welltekmobile.native_v2_welltek.fragments.home;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.XmlResourceParser;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PointF;
+import android.location.Location;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.cloudsinc.welltekmobile.native_v2_welltek.R;
+import com.cloudsinc.welltekmobile.native_v2_welltek.application.App;
+import com.cloudsinc.welltekmobile.native_v2_welltek.fragments.home.circularprogressbar.CircularProgressBar;
+import com.cloudsinc.welltekmobile.native_v2_welltek.fragments.home.smooth_line_chart.SmoothLineChart;
+import com.cloudsinc.welltekmobile.native_v2_welltek.models.Subcriber;
+import com.cloudsinc.welltekmobile.native_v2_welltek.utils.JsonObjectCreater;
+import com.cloudsinc.welltekmobile.native_v2_welltek.utils.Logs;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.helper.StaticLabelsFormatter;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.TimeZone;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import rx.Observable;
+import rx.Observer;
+import rx.Subscriber;
+/**
+ * This class used to display Outdoor air quality data  on Mobile.
+ *
+ * @author  Jaid Shaikh
+ * @version 1.0
+ * @since   2017-12-1
+ */
+public class OutdoorAirQualityMain extends Fragment implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+    private LatLng latLng;
+    GoogleApiClient mGoogleApiClient;
+    LocationRequest mLocationRequest;
+    private GoogleMap mMap;
+    Marker currLocationMarker;
+    Double latitude, longitude;
+    @BindView(R.id.co2_status)TextView co2_status;
+    @BindView(R.id.no2_status)TextView no2_status;
+    @BindView(R.id.o3_status)TextView o3_status;
+    @BindView(R.id.pm2_status)TextView pm2_status;
+    @BindView(R.id.pm10_status)TextView pm10_status;
+    @BindView(R.id.so2_status)TextView so2_status;
+    public static String t11="";
+    public static String t22="";
+    public static OutdoorAirQualityMain newInstance() {
+        return new OutdoorAirQualityMain();
+    }
+    //String c = "CO\u2082";
+    String c = "CO";
+    String o = "O\u0033";
+    String n = "NO\u2082";
+    String s = "SO\u2082";
+    public double aup_co;
+    public double aup_no2;
+    public double aup_o3;
+    public double aup_pm25;
+    public double aup_pm10;
+    public double aup_so2;
+    CircularProgressBar CO2, NO2, O3, PM2_5, PM10, SO2;
+    private View v;
+    Context mcontext;
+    TabLayout tabLayout;
+    @BindView(R.id.leaflet)
+    WebView tampilWeb;
+    @BindView(R.id.img_close)
+    ImageView img_close;
+    TextView start;
+    TextView end;
+    private Tracker mTracker;
+
+    @SuppressLint("StaticFieldLeak")
+    public static FrameLayout  fragment_container_map, fragment_container_forecast;
+    private InputStream inputStream;
+    private String webContent = "", part1 = "", part2 = "", part3 = "", completeData = "";
+    private Observable<String> mobservable;
+    private Observer<String> myObserver;
+    private GraphView graph;
+    private ArrayList<Integer> breezometer_aqi_list = new ArrayList<>();
+    private ArrayList<String> timeList = new ArrayList<>();
+    int chooseColor=0;
+    private int co_lowerLimit=0;
+    private int co_upperLimit=0;
+    private double co_diff =0;
+    public static double co_Result=0;
+    private int no_lowerLimit=0;
+    private int no_upperLimit=0;
+    private double no_diff =0;
+    public static double no_Result=0;
+    private int o3_lowerLimit=0;
+    private int o3_upperLimit=0;
+    private double o3_diff =0;
+    public static double o3_Result=0;
+    private int pm2_lowerLimit=0;
+    private int pm2_upperLimit=0;
+    private double pm2_diff =0;
+    public static double pm2_Result=0;
+    private int pm10_lowerLimit=0;
+    private int pm10_upperLimit=0;
+    private double pm10_diff =0;
+    public static double pm10_Result=0;
+    private int so_lowerLimit=0;
+    private int so_upperLimit=0;
+    private double so_diff =0;
+    public static double so_Result=0;
+    static String strDefaultTimeZone="";
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        try {
+            if (!checkConfiguration()) {
+                Logs.info("Outdoor Mobile","Error in Mobile Activites Fragment");
+            }
+            App application = (App)getActivity().getApplication();
+            mTracker = application.getDefaultTracker();
+            sendScreenImageName();
+            getLocationInfo();
+            inputStream = getActivity().getAssets().open("map_marker.html");
+            int size = inputStream.available();
+            byte[] buffer = new byte[size];
+            inputStream.read(buffer);
+            inputStream.close();
+            webContent = new String(buffer);
+            Log.i("contents: ", webContent);
+        } catch (IOException e) {
+            Log.i("exception: ", e.toString());
+        }
+        part1 = webContent.substring(0, webContent.indexOf("center"));
+        Log.i("first part: ", part1);
+        part2 = webContent.substring(webContent.indexOf("zoom"),
+                webContent.indexOf("L.marker"));
+        Log.i("second part: ", part2);
+        part3 = webContent.substring(webContent.indexOf("var breezometerTiles"));
+        Log.i("third part: ", part3);
+        completeData = part1 +
+                "center: [" + latitude + "," + longitude + "]," +
+                part2 +
+                "L.marker([" + latitude + "," + longitude + "]).addTo(map);" +
+                part3;
+    }
+    private void getLocationInfo() {
+        try {
+            Log.d("LocationData",""+ App.getHubInfo().getJSONArray("data"));
+            JSONArray jsonArray = App.getHubInfo().getJSONArray("data");
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+            latitude=jsonObject.getDouble("CML_LATITUDE");
+            longitude=jsonObject.getDouble("CML_LONGITUDE");
+        }
+        catch (Exception ex){
+            Log.e("LocationError",""+ex.getMessage());
+        }
+    }
+    @SuppressLint({"JavascriptInterface", "SetJavaScriptEnabled"})
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        v = inflater.inflate(R.layout.outdoor_airquality_main, container, false);
+        mcontext = v.getContext();
+        ButterKnife.bind(this, v);
+        tabLayout = v.findViewById(R.id.tabs);
+        fragment_container_map = v.findViewById(R.id.fragment_container_map);
+        fragment_container_forecast = v.findViewById(R.id.fragment_container_forecast);
+        SmoothLineChart chart = v.findViewById(R.id.smoothChart);
+        start =v.findViewById(R.id.starttime);
+        end =v.findViewById(R.id.endtime);
+        // add below code to change the color of graph curve
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getPosition()) {
+                    case 0:
+                        fragment_container_map.setVisibility(View.VISIBLE);
+                        fragment_container_forecast.setVisibility(View.INVISIBLE);
+                        break;
+                    case 1:
+                        fragment_container_map.setVisibility(View.INVISIBLE);
+                        fragment_container_forecast.setVisibility(View.VISIBLE);
+                        break;
+                }
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+        CO2 = v.findViewById(R.id.CO2);
+        aup_co= HomeHeathByZoneFragment.au_co;
+        aup_no2= HomeHeathByZoneFragment.au_no2;
+        aup_pm25= HomeHeathByZoneFragment.au_pm2;
+        aup_o3= HomeHeathByZoneFragment.au_o3;
+        aup_pm10= HomeHeathByZoneFragment.au_pm10;
+        aup_so2= HomeHeathByZoneFragment.au_so;
+        Log.i("twpollutant_OutdoorMob:",""+aup_co);
+        CO2.titleSize(16);
+        CO2.drawTitle(""+c);
+        int a=(int)getCO2value();
+        CO2.setProgress(a);
+/*
+        CO2_frag.setOnClickListener(this);
+*/
+        NO2 = v.findViewById(R.id.NO2);
+        NO2.drawTitle("NO");
+        int b=(int)getNO2value();
+        NO2.setProgress(b);
+        O3 = v.findViewById(R.id.O3);
+        O3.drawTitle("O");
+        int c=(int)getO3value();
+        O3.setProgress(c);
+        PM2_5 = v.findViewById(R.id.PM2_5);
+        PM2_5.drawTitle("PM");
+        PM2_5.drawTitleL2("2.5");
+        int d=(int)getpm25value();
+        PM2_5.setProgress(d);
+        PM10 = v.findViewById(R.id.PM10);
+        PM10.drawTitle("PM");
+        PM10.drawTitleL2("10");
+        int e=(int)getpm10value();
+        PM10.setProgress(e);
+        SO2 = v.findViewById(R.id.SO2);
+        SO2.drawTitle("SO");
+        int f=(int)getSO2value();
+        SO2.setProgress(f);
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            CO2.titleSize(36);
+            CO2.titleSize3(18);
+            NO2.titleSize(36);
+            NO2.drawSubscript("2");
+            NO2.titleSize3(18);
+            O3.titleSize(36);
+            O3.drawSubscript("3");
+            O3.titleSize3(18);
+            PM2_5.titleSize(36);
+            PM2_5.titleSize2(18);
+            PM10.titleSize(36);
+            PM10.titleSize2(18);
+            SO2.titleSize(36);
+            SO2.drawSubscript("2");
+            SO2.titleSize3(18);
+        }
+        tampilWeb = v.findViewById(R.id.leaflet);
+        tampilWeb.addJavascriptInterface(new WebAppInterface(getActivity()), "Android");
+        tampilWeb.getSettings().setJavaScriptEnabled(true);
+        tampilWeb.setWebViewClient(new WebViewClient());
+        tampilWeb.setBackgroundColor(Color.TRANSPARENT);
+        tampilWeb.loadData(completeData, "text/html", null);
+        graph = v.findViewById(R.id.graph);
+        App.getSocket().emit("action", JsonObjectCreater.getJsonObject("get_breezometer_data", new JSONObject()));
+        setSubcriber();
+        return v;
+    }
+    private double getCO2value() {
+        double val_result=0;
+        if(aup_co>=0 && aup_co<=4586){
+            co_lowerLimit=0;
+            co_upperLimit=4586;
+            co_diff =75.6;
+            int   firstValue = 4586 - 0;
+            double   secondValue = aup_co - 0 ;
+            val_result = (secondValue * co_diff)/firstValue;
+        }
+        else if(aup_co>4586 && aup_co<=9171) {
+            co_lowerLimit = 4586;
+            co_upperLimit = 9171;
+            co_diff =72;
+            int   firstValue = 9171 - 4586;
+            double secondValue = aup_co - 4586 ;
+            val_result = (secondValue * co_diff)/firstValue;
+            val_result = val_result + 75.6;
+        }
+        else if(aup_co>9171 && aup_co<=13101) {
+            co_lowerLimit = 9171;
+            co_upperLimit = 13101;
+            co_diff =72;
+            int  firstValue = 13101-9171;
+            double  secondValue = aup_co - 9171 ;
+            val_result = (secondValue * co_diff)/firstValue;
+            val_result = val_result + 75.6 + 72;
+        }
+        else if(aup_co>13101 && aup_co<=17468) {
+            co_lowerLimit = 13101;
+            co_upperLimit = 17468;
+            co_diff =72;
+            int  firstValue = 17468-13101;
+            double  secondValue = aup_co - 13101 ;
+            val_result = (secondValue * co_diff)/firstValue;
+            val_result = val_result + 75.6 + 72+72;
+        }
+        else if(aup_co>17468 && aup_co<=48785) {
+            co_lowerLimit = 17468;
+            co_upperLimit = 48785;
+            co_diff =72;
+            int  firstValue =48785-17468;
+            double  secondValue = aup_co - 17468 ;
+            val_result = (secondValue * co_diff)/firstValue;
+            val_result = val_result + 75.6 + 72 + 72+72;
+        }
+        if(co_Result>100 ){
+            co_Result=99;
+        }
+        double ivalue = val_result * 100/360;
+        ivalue = 100 - Math.round(ivalue);
+        co_Result=ivalue;
+        setColorStatus(co2_status,CO2,ivalue);
+        return ivalue;
+    }
+    private double getNO2value() {
+        double val_result=0;
+        if(aup_no2>=0 && aup_no2<=27){
+            no_lowerLimit=0;
+            no_upperLimit=27;
+            no_diff =75.6;
+            int   firstValue = 27 - 0;
+            double   secondValue = aup_no2 - 0 ;
+            val_result = (secondValue * no_diff)/firstValue;
+            //no_Result=79+getNOfinal();
+        }
+        else if(aup_no2>27 && aup_no2<=53) {
+            no_lowerLimit = 27;
+            no_upperLimit = 53;
+            no_diff =72;
+            int   firstValue = 53 - 27;
+            double secondValue = aup_no2 - 27 ;
+            val_result = (secondValue * no_diff)/firstValue;
+            val_result = val_result + 75.6;
+        }
+        else if(aup_no2>53 && aup_no2<=106) {
+            no_lowerLimit = 53;
+            no_upperLimit = 106;
+            no_diff =72;
+            int  firstValue = 106 - 53;
+            double  secondValue = aup_no2 - 53 ;
+            val_result = (secondValue * no_diff)/firstValue;
+            val_result = val_result + 75.6 + 72;
+        }
+        else if(aup_no2>106 && aup_no2<=319) {
+            no_lowerLimit = 106;
+            no_upperLimit = 319;
+            no_diff =72;
+            int  firstValue = 319-106;
+            double  secondValue = aup_no2 - 106 ;
+            val_result = (secondValue * no_diff)/firstValue;
+            val_result = val_result + 75.6 + 72+72;
+        }
+        else if(aup_no2>319 && aup_no2<=532) {
+            no_lowerLimit = 319;
+            no_upperLimit = 532;
+            no_diff =72;
+            int  firstValue = 532 - 319;
+            double  secondValue = aup_no2 - 319 ;
+            val_result = (secondValue * no_diff)/firstValue;
+            val_result = val_result + 75.6 + 72 + 72+72;
+        }
+        if(no_Result>100){
+            no_Result=99;
+        }
+        if(no_Result==0 ){
+            no_Result=100;
+        }
+        Log.i("twpollutant_result",""+val_result);
+        double a =360 - val_result;
+        double ivalue = val_result * 100/360;
+        ivalue = 100 - Math.round(ivalue);
+        Log.i("twpollutant_a",""+a);
+        Log.i("twpollutant_ivalue",""+ivalue);
+        no_Result=ivalue;
+        setColorStatus(no2_status,NO2,ivalue);
+        ////Toast.makeText(mcontext, "Result no_Result : "+no_Result, //Toast.LENGTH_SHORT).show();
+        return ivalue;
+    }
+    private double getO3value() {
+        double val_result=0;
+        if(aup_o3>=0 && aup_o3<=28){
+            o3_lowerLimit=0;
+            o3_upperLimit=28;
+            o3_diff =75.6;
+            int   firstValue = 28 - 0;
+            double   secondValue = aup_o3 - 0 ;
+            val_result = (secondValue * o3_diff)/firstValue;
+        }
+        else if(aup_o3>28 && aup_o3<=56) {
+            o3_lowerLimit = 28;
+            o3_upperLimit = 56;
+            o3_diff =72;
+            int   firstValue = 56 - 28;
+            double secondValue = aup_o3 - 28 ;
+            val_result = (secondValue * o3_diff)/firstValue;
+            val_result = val_result + 75.6;
+        }
+        else if(aup_o3>56 && aup_o3<=92) {
+            o3_lowerLimit = 56;
+            o3_upperLimit = 92;
+            o3_diff =72;
+            int  firstValue = 92 - 56;
+            double  secondValue = aup_o3 - 56 ;
+            val_result = (secondValue * o3_diff)/firstValue;
+            val_result = val_result + 75.6 + 72;
+        }
+        else if(aup_o3>92 && aup_o3<=153) {
+            o3_lowerLimit = 92;
+            o3_upperLimit = 153;
+            o3_diff =72;
+            int  firstValue = 153-92;
+            double  secondValue = aup_o3 - 92 ;
+            val_result = (secondValue * o3_diff)/firstValue;
+            val_result = val_result + 75.6 + 72+72;
+        }
+        else if(aup_o3>153 && aup_o3<=306) {
+            o3_lowerLimit = 153;
+            o3_upperLimit = 306;
+            o3_diff =72;
+            int  firstValue = 306-153;
+            double  secondValue = aup_o3 - 153 ;
+            val_result = (secondValue * o3_diff)/firstValue;
+            val_result = val_result + 75.6 + 72+72+72;
+        }
+        if(o3_Result>100){
+            o3_Result=99;
+        }
+        double ivalue = val_result * 100/360;
+        ivalue = 100 - Math.round(ivalue);
+        o3_Result=ivalue;
+        setColorStatus(o3_status,O3,ivalue);
+        return ivalue;
+    }
+    private double getpm25value() {
+        Log.i("twpollutant_infunction",""+aup_pm25);
+        double val_result=0;
+        if(aup_pm25>=0 && aup_pm25<=20){
+            pm2_lowerLimit=0;
+            pm2_upperLimit=20;
+            pm2_diff =75.6;
+            int   firstValue = 20 - 0;
+            double   secondValue = aup_pm25 - 0 ;
+            val_result = (secondValue * pm2_diff)/firstValue;
+        }
+        else if(aup_pm25>20 && aup_pm25<=40) {
+            pm2_lowerLimit = 20;
+            pm2_upperLimit = 40;
+            pm2_diff =72;
+            int   firstValue = 40 - 28;
+            double secondValue = aup_pm25 - 28 ;
+            val_result = (secondValue * pm2_diff)/firstValue;
+            val_result = val_result + 75.6;
+        }
+        else if(aup_pm25>40 && aup_pm25<=65) {
+            pm2_lowerLimit = 40;
+            pm2_upperLimit = 65;
+            pm2_diff =72;
+            int  firstValue = 65 - 40;
+            double  secondValue = aup_pm25 - 40 ;
+            val_result = (secondValue * pm2_diff)/firstValue;
+            val_result = val_result + 75.6 + 72;
+        }
+        else if(aup_pm25>65 && aup_pm25<=125) {
+            pm2_lowerLimit = 65;
+            pm2_upperLimit = 125;
+            pm2_diff =72;
+            int  firstValue = 125-65;
+            double  secondValue = aup_pm25 - 65 ;
+            val_result = (secondValue * pm2_diff)/firstValue;
+            val_result = val_result + 75.6 + 72+72;
+        }
+        else if(aup_pm25>125 && aup_pm25<=500) {
+            pm2_lowerLimit = 125;
+            pm2_upperLimit = 500;
+            pm2_diff =72;
+            int  firstValue = 500 - 125;
+            double  secondValue = aup_pm25 - 125 ;
+            val_result = (secondValue * pm2_diff)/firstValue;
+            val_result = val_result + 75.6 + 72 + 72+72;
+        }
+        if(pm2_Result>100){
+            pm2_Result=99;
+        }
+        double ivalue = val_result * 100/360;
+        ivalue = 100 - Math.round(ivalue);
+        pm2_Result=ivalue;
+        setColorStatus(pm2_status,PM2_5,ivalue);
+        return ivalue;
+    }
+    private double getpm10value() {
+        double val_result=0;
+        if(aup_pm10>=0 && aup_pm10<=38){
+            pm10_lowerLimit=0;
+            pm10_upperLimit=38;
+            pm10_diff =75.6;
+            int   firstValue = 38 - 0;
+            double   secondValue = aup_pm10 - 0 ;
+            val_result = (secondValue * pm10_diff)/firstValue;
+        }
+        else if(aup_pm10>38&& aup_pm10<=75) {
+            pm10_lowerLimit = 38;
+            pm10_upperLimit = 75;
+            pm10_diff =72;
+            int  firstValue = 75 - 38;
+            double  secondValue = aup_pm10 - 38 ;
+            val_result = (secondValue * pm10_diff)/firstValue;
+            val_result = val_result + 75.6;
+        }
+        else if(aup_pm10>75 && aup_pm10<=120) {
+            pm10_lowerLimit =75;
+            pm10_upperLimit = 120;
+            pm10_diff =72;
+            int  firstValue = 120-75;
+            double  secondValue = aup_pm10 - 75 ;
+            val_result = (secondValue *pm10_diff)/firstValue;
+            val_result = val_result + 75.6 + 72;
+        }
+        else if(aup_pm10>120 && aup_pm10<=250) {
+            pm10_lowerLimit = 120;
+            pm10_upperLimit = 250;
+            pm10_diff =72;
+            int  firstValue = 250-120;
+            double  secondValue = aup_pm10 - 120 ;
+            val_result = (secondValue * pm10_diff)/firstValue;
+            val_result = val_result + 75.6 + 72+72;
+        }
+        else if(aup_pm10>250 && aup_pm10<=600) {
+            pm10_lowerLimit = 250;
+            pm10_upperLimit = 600;
+            pm10_diff =72;
+            int  firstValue = 600 - 250;
+            double  secondValue = aup_pm10 - 250 ;
+            val_result = (secondValue * pm10_diff)/firstValue;
+            val_result = val_result + 75.6 + 72 + 72+72;
+        }
+        if(pm10_Result>100){
+            pm10_Result=99;
+        }
+        if(pm10_Result==0 ){
+            pm10_Result=100;
+        }
+        double ivalue = val_result * 100/360;
+        ivalue = 100 - Math.round(ivalue);
+        pm10_Result=ivalue;
+        setColorStatus(pm10_status,PM10,ivalue);
+        return ivalue;
+    }
+    private double getSO2value() {
+        double val_result=0;
+        if(aup_so2>=0 && aup_so2<=19){
+            so_lowerLimit=0;
+            so_upperLimit=19;
+            so_diff =75.6;
+            int   firstValue = 19 - 0;
+            double   secondValue = aup_so2 - 0 ;
+            val_result = (secondValue * so_diff)/firstValue;
+        }
+        else if(aup_so2>19 && aup_so2<=38) {
+            so_lowerLimit = 19;
+            so_upperLimit = 38;
+            so_diff =72;
+            int   firstValue = 38 - 19;
+            double secondValue = aup_so2 - 19 ;
+            val_result = (secondValue * so_diff)/firstValue;
+            val_result = val_result + 75.6;
+        }
+        else if(aup_so2>38 && aup_so2<=115) {
+            so_lowerLimit = 38;
+            so_upperLimit = 115;
+            so_diff =72;
+            int  firstValue = 115 - 38;
+            double  secondValue = aup_so2 - 38 ;
+            val_result = (secondValue * so_diff)/firstValue;
+            val_result = val_result + 75.6 + 72;
+        }
+        else if(aup_so2>115 && aup_so2<=191) {
+            so_lowerLimit = 115;
+            so_upperLimit = 191;
+            so_diff =72;
+            int  firstValue = 191-115;
+            double  secondValue = aup_so2 - 115 ;
+            val_result = (secondValue * so_diff)/firstValue;
+            val_result = val_result + 75.6 + 72+72;
+        }
+        else if(aup_so2>191 && aup_so2<=573) {
+            so_lowerLimit = 191;
+            so_upperLimit = 573;
+            so_diff =72;
+            int  firstValue = 573 - 191;
+            double  secondValue = aup_so2 - 191 ;
+            val_result = (secondValue * so_diff)/firstValue;
+            val_result = val_result + 75.6 + 72 + 72+72;
+        }
+        double ivalue = val_result * 100/360;
+        ivalue = 100 - Math.round(ivalue);
+        so_Result=ivalue;
+        setColorStatus(so2_status,SO2,ivalue);
+        return ivalue;
+    }
+    public void setColorStatus(final TextView status, final CircularProgressBar v, double result)
+    {
+        double score=result;
+        //   //Toast.makeText(mcontext, "Score"+score, Toast.LENGTH_SHORT).show();
+        if (score >= 0 && score <= 39) {
+            status.setText("Poor");
+            v.setProgressColor(Color.rgb(246,103,101));
+        }else if (score >= 40 && score <= 59) {
+            status.setText("Moderate");
+            v.setProgressColor(Color.rgb(229,197,0));
+        } else if (score >= 60 && score <= 69) {
+            status.setText("Moderate");
+            v.setProgressColor(Color.rgb(229,197,0));
+        } else if (score >= 70 && score <= 79) {
+            status.setText("Moderate");
+            v.setProgressColor(Color.rgb(229,197,0));
+        } else if (score >= 80 && score <= 89) {
+            status.setText("Good");
+            v.setProgressColor(Color.rgb(68,255,233));
+        }
+        else if (score >= 90 && score <= 100) {
+            status.setText("Excellent");
+            v.setProgressColor(Color.rgb(68,255,233));
+        }
+    }
+    @OnClick(R.id.img_close)
+    public void close_nav() {
+        Fragment fragment=new PullDownFragment();
+        FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+        fragmentTransaction.addToBackStack("PullDownFragment");
+        fragmentTransaction.replace(R.id.frm_main_container,fragment).commit();
+        this.onStop();
+    }
+    private void DrawGraph(ArrayList<Integer> breezometer_aqi_list,
+                           ArrayList<String> timeList) {
+        float arr[] = new float[12];
+        SmoothLineChart chart = v.findViewById(R.id.smoothChart);
+        //chooseColor=HomeHeathByZoneFragment.breezometer_aqi_score;
+
+        for (int i = 0; i < breezometer_aqi_list.size(); i++) {
+            arr[i] = (float) breezometer_aqi_list.get(i) / 10;
+            Log.i("value: ", String.valueOf(arr[i]));
+            chart.setData(new PointF[]{
+                    new PointF(0, (float) breezometer_aqi_list.get(0) / 10),
+                    new PointF(1, (float) breezometer_aqi_list.get(1) / 10),
+                    new PointF(2, (float) breezometer_aqi_list.get(2) / 10),
+                    new PointF(3, (float) breezometer_aqi_list.get(3) / 10),
+                    new PointF(4, (float) breezometer_aqi_list.get(4) / 10),
+                    new PointF(5, (float) breezometer_aqi_list.get(5) / 10),
+                    new PointF(6, (float) breezometer_aqi_list.get(6) / 10),
+                    new PointF(7, (float) breezometer_aqi_list.get(7) / 10),
+                    new PointF(8, (float) breezometer_aqi_list.get(8) / 10),
+                    new PointF(9, (float) breezometer_aqi_list.get(9) / 10),
+                    new PointF(10, (float) breezometer_aqi_list.get(10) / 10),
+                    new PointF(11, (float) breezometer_aqi_list.get(11) / 10),
+            });
+            chooseColor=breezometer_aqi_list.get(6);
+            if (chooseColor>=0 && chooseColor <=19){
+                chart.setCurveColor(Color.rgb(252, 68, 83));
+            }else if (chooseColor>20 & chooseColor<=39){
+                chart.setCurveColor(Color.rgb(246, 103, 101));
+            }else if (chooseColor>40 && chooseColor<=59){
+                chart.setCurveColor (Color.rgb(250, 225, 116));
+            }else if (chooseColor>60 & chooseColor<=79){
+                chart.setCurveColor(Color.rgb(115, 223, 159));
+            }else if (chooseColor>80 & chooseColor<=100) {
+                chart.setCurveColor(Color.rgb(49, 212, 172));
+            }
+
+            // graph.addSeries(series);
+            graph.getGridLabelRenderer().setVerticalAxisTitle("SCORE");
+            graph.getGridLabelRenderer().setVerticalLabelsAlign(Paint.Align.CENTER);
+            graph.setTitle("FORCASTED AIR QUALITY");
+            StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
+            staticLabelsFormatter.setHorizontalLabels(new String[]{timeList.get(0),
+                    timeList.get(1)});
+            staticLabelsFormatter.setVerticalLabels(new String[]{"0", "", "", "", "", "100"});
+            graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+        }
+    }
+    private void setSubcriber() {
+        mobservable = Observable.create(
+                new Observable.OnSubscribe<String>() {
+                    @Override
+                    public void call(Subscriber<? super String> sub) {
+                        sub.onNext("" + App.getRoomData());
+                    }
+                }
+        );
+        myObserver = new Observer<String>() {
+            @Override
+            public void onCompleted() {
+            }
+            @Override
+            public void onError(Throwable e) {
+            }
+            @Override
+            public void onNext(String string) {
+                try {
+                    JSONArray jsonArrayy = App.getbreezometer_data().getJSONArray("data");
+                    Log.e("Breezometer ", "" + jsonArrayy);
+                    for (int i = 0; i < jsonArrayy.length(); i++) {
+                        JSONObject jsonObject = jsonArrayy.getJSONObject(i);
+                        int a = jsonObject.getInt("breezometer_aqi");
+                        breezometer_aqi_list.add(
+                                Integer.parseInt(
+                                        jsonObject.getString("breezometer_aqi"))
+                        );
+                        if(i == 0){
+                            String dataTime = jsonObject.getString("datetime");
+                            strDefaultTimeZone = App.getHubInfo().getJSONArray("data").getJSONObject(0).getString("CML_TIMEZONE");
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SS'Z'");
+                            SimpleDateFormat month_date = new SimpleDateFormat("HH:mm");
+                            TimeZone tz = TimeZone.getTimeZone(strDefaultTimeZone);
+                            month_date.setTimeZone(tz);
+                            sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+                            Calendar expdate = Calendar.getInstance();
+                            expdate.setTime(sdf.parse(dataTime));
+                            //   //Toast.makeText(mcontext, ""+month_date.format(expdate.getTime()), Toast.LENGTH_SHORT).show();
+                            start.setText(""+month_date.format(expdate.getTime()));
+                        }
+                        if(i == jsonArrayy.length()-1){
+                            String dataTime = jsonObject.getString("datetime");
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SS'Z'");
+                            SimpleDateFormat month_date = new SimpleDateFormat("HH:mm");
+                            TimeZone tz = TimeZone.getTimeZone(strDefaultTimeZone);
+                            month_date.setTimeZone(tz);
+                            sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+                            Calendar expdate = Calendar.getInstance();
+                            expdate.setTime(sdf.parse(dataTime));
+                            //   //Toast.makeText(mcontext, ""+month_date.format(expdate.getTime()), Toast.LENGTH_SHORT).show();
+                            end.setText(""+month_date.format(expdate.getTime()));
+                        }
+                    }
+                    DrawGraph(breezometer_aqi_list, timeList);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        Subcriber s = new Subcriber();
+        s.setObservable(mobservable);
+        s.setObserver(myObserver);
+        App.setCurrentSubcriber(s);
+    }
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+        if (ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            return;
+        }
+        Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                mGoogleApiClient);
+        if (mLastLocation != null) {
+            //place marker at current position
+            //mGoogleMap.clear();
+            //////// latLng = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
+            latLng = new LatLng(18.5078838, 73.7964008);
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(latLng);
+            markerOptions.title("Current Position");
+            markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker100));
+            currLocationMarker = mMap.addMarker(markerOptions);
+        }
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(5000); //5 seconds
+        mLocationRequest.setFastestInterval(3000); //3 seconds
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+        //mLocationRequest.setSmallestDisplacement(0.1F); //1/10 meter
+        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, (LocationListener) getActivity());
+    }
+    @Override
+    public void onConnectionSuspended(int i) {
+        //  //Toast.makeText(getActivity(), "onConnectionSuspended", Toast.LENGTH_SHORT).show();
+    }
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+    }
+    @Override
+    public void onLocationChanged(Location location) {
+    }
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+    }
+    public class WebAppInterface {
+        Context mContext;
+        /**
+         * Instantiate the interface and set the context
+         */
+        WebAppInterface(Context c) {
+            mContext = c;
+        }
+        /**
+         * Get the value
+         */
+        @JavascriptInterface
+        public Double getValue() {
+            Double value=0.0;
+            JSONArray jsonArray = null;
+            try {
+                jsonArray = App.getHubInfo().getJSONArray("data");
+                JSONObject jsonObject = jsonArray.getJSONObject(0);
+                value=jsonObject.getDouble("CML_LATITUDE");
+                longitude=jsonObject.getDouble("CML_LONGITUDE");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return value;
+        }
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+    }
+    private void sendScreenImageName() {
+        String name = "Outdoor Mobile Fragment";
+        // [START screen_view_hit]
+        Log.i("Outdoor mobile", "Setting screen name: " + name);
+        mTracker.setScreenName("Darwin~" + name);
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+        // [END screen_view_hit]
+    }
+
+    private boolean checkConfiguration() {
+        XmlResourceParser parser = getResources().getXml(R.xml.global_tracker);
+
+        boolean foundTag = false;
+        try {
+            while (parser.getEventType() != XmlResourceParser.END_DOCUMENT) {
+                if (parser.getEventType() == XmlResourceParser.START_TAG) {
+                    String tagName = parser.getName();
+                    String nameAttr = parser.getAttributeValue(null, "name");
+
+                    foundTag = "string".equals(tagName) && "ga_trackingId".equals(nameAttr);
+                }
+
+                if (parser.getEventType() == XmlResourceParser.TEXT) {
+                    if (foundTag && parser.getText().contains("REPLACE_ME")) {
+                        return false;
+                    }
+                }
+
+                parser.next();
+            }
+        } catch (Exception e) {
+            Log.w("Outdoor Mobile", "checkConfiguration", e);
+            return false;
+        }
+
+        return true;
+    }
+}

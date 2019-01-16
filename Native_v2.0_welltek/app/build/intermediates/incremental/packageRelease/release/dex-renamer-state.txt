@@ -1,0 +1,7 @@
+#Mon Jan 07 09:47:46 IST 2019
+base.0=/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/app/build/intermediates/transforms/dex/release/0
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/app/build/intermediates/transforms/dex/release/0

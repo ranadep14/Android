@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:id="@+id/activity_main_home"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_main_background_pull_down_mob">
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+        android:id="@+id/prog"/>
+    <TextView
+        android:id="@+id/no_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:text="No Data Available"/>
+    <LinearLayout
+        android:weightSum="610"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="-100dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:id="@+id/lyt_data"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        tools:ignore="ObsoleteLayoutParam">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="100"
+            android:id="@+id/top_lyt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="UselessParent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="100"
+                    android:baselineAligned="false"
+                    tools:ignore="UselessParent">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="36"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/txt_cur_weather"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text=""
+                            android:paddingLeft="5dp"
+                            android:textColor="@color/black"
+                            android:textSize="18dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical|center_horizontal">
+                        <View
+                            android:layout_width="1dp"
+                            android:id="@+id/vv2"
+                            android:layout_height="30dp"
+                            android:background="#000000" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="28"
+                        android:gravity="center_vertical|center_horizontal">
+
+                        <TextView
+                            android:id="@+id/txt_temp_weather"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:text=""
+                            android:textSize="40sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical|center_horizontal">
+
+                        <View
+                            android:id="@+id/vv3"
+                            android:layout_width="1dp"
+                            android:layout_height="30dp"
+                            android:background="#000000" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="34"
+                        android:gravity="center_vertical|center_horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:gravity="center_horizontal"
+                            android:id="@+id/txt_humidity_weather"
+                            android:textSize="18dp"
+                            android:textColor="@color/black"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="140"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="UselessParent">
+                <TextView
+                    android:layout_above="@+id/v1"
+                    android:layout_marginBottom="15dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_v1"
+                    android:text="OUTDOOR AIR QUALITY"
+                    android:textSize="@dimen/all_text_size" />
+
+                <View
+                    android:id="@+id/v1"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="50dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#000000" />
+
+                <TextView
+                    android:id="@+id/outdoor_descp"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/v1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="@dimen/all_text_size_item_heading" />
+            </RelativeLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="160"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                tools:ignore="UselessParent">
+
+                <!-- <com.cloudsinc.welltekmobile.native_v2_welltek.fragments.home.circularprogressbar.CircularProgressBar
+                   android:layout_width="165dp"
+                   android:layout_height="170dp"-->
+                <com.github.lzyzsd.circleprogress.DonutProgress
+                    android:layout_height="155dp"
+                    android:layout_width="155dp"
+                    android:id="@+id/outdoor_aqi_graph"
+                    app:donut_progress="0"
+                    app:donut_unfinished_stroke_width="7dp"
+                    app:donut_finished_stroke_width="7dp"
+                    app:donut_text=""
+                    app:donut_text_size="@dimen/ch2"
+                    app:donut_text_color="#000"
+                    app:donut_circle_starting_degree="270"
+                    app:donut_unfinished_color="#60ffffff"
+                    android:layout_centerInParent="true"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+        <!--<LinearLayout
+            android:layout_weight="70"
+            android:gravity="center_horizontal|bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <ImageView
+                android:id="@+id/img_btn_pull_up_panel"
+                android:background="@drawable/ic_down_arr"
+                android:layout_width="50dp"
+                android:rotation="180"
+                android:layout_height="25dp" />
+        </LinearLayout>-->
+        <LinearLayout
+            android:layout_weight="140"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:ignore="UselessLeaf" />
+
+    </LinearLayout>
+
+
+
+    <ImageView
+        android:id="@+id/img_sun_move"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <SeekBar
+        android:id="@+id/seek_sun_move"
+        android:alpha="0"
+        android:layout_marginTop="150dp"
+        android:thumb="@null"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+    <Button
+        android:layout_centerVertical="true"
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:visibility="gone"
+        />
+    <Button
+        android:layout_centerVertical="true"
+        android:id="@+id/btn_change_backround"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="change image"
+        android:visibility="gone"
+        android:layout_alignParentRight="true" />
+    <ImageView
+        android:id="@+id/img_sun_circle"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-100dp"
+        android:background="@drawable/sun_animation"
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
+    <ImageView
+        android:id="@+id/img_btn_pull_up_panel"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:layout_marginBottom="110dp"
+        android:background="@drawable/ic_down_arr"
+        android:layout_width="50dp"
+        android:rotation="180"
+        android:layout_height="20dp" />
+
+    <Chronometer
+        android:visibility="gone"
+        android:id="@+id/simpleChronometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

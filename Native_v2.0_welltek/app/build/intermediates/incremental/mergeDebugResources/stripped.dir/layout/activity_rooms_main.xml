@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragment_bg_color"
+    >
+    <RelativeLayout
+        android:id="@+id/rel_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/txt_no_rooms_available"
+            android:textSize="@dimen/title_text_size"
+            android:visibility="gone"
+            android:textColor="@color/light_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/no_rooms"/>
+        <include layout="@layout/custom_darwin_loading_layout"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/lin_single_room"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rel_single_room"
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+
+        <ImageView
+            android:id="@+id/img_single_room_back"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/bg_masterbedroom"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@color/trans_blue">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_weight="1"
+            tools:ignore="ObsoleteLayoutParam">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/txt_id"
+                android:visibility="gone"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/txt_room_type"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/txt_room_title"
+                android:layout_marginTop="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title_text_size"
+                android:textColor="@color/white"
+                android:text="Master Bedroom"/>
+            <LinearLayout
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+                <LinearLayout
+                    android:id="@+id/lin_room_lights"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:ignore="UseCompoundDrawables">
+                    <ImageView
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/ic_bulb_white"
+                        android:layout_width="@dimen/icon_height_size"
+                        android:layout_height="@dimen/icon_height_size"
+                        android:background="@drawable/circle_gray1"
+                        />
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/white"
+                        android:text="Lights"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_marginLeft="40dp"
+                    android:id="@+id/lin_room_blinds"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:ignore="UseCompoundDrawables">
+                    <ImageView
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/ic_blinds_white"
+                        android:layout_width="@dimen/icon_height_size"
+                        android:layout_height="@dimen/icon_height_size"
+                        android:background="@drawable/circle_gray1"
+                        />
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/white"
+                        android:text="Blinds"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="40dp"
+                    android:id="@+id/lin_room_audio"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:ignore="UseCompoundDrawables">
+                    <ImageView
+                        android:padding="10dp"
+                        app:srcCompat="@drawable/ic_audio_white"
+                        android:layout_width="@dimen/icon_height_size"
+                        android:layout_height="@dimen/icon_height_size"
+                        android:background="@drawable/circle_gray1"
+                        />
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/white"
+                        android:text="Audio"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_weight="0"
+            android:layout_height="0dp"
+            tools:ignore="UselessLeaf">
+
+        </RelativeLayout>
+    </LinearLayout>
+
+        <GridView
+            android:visibility="gone"
+            android:numColumns="2"
+            android:gravity="center"
+            android:columnWidth="150dp"
+            android:stretchMode="columnWidth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/grid_room"
+            />
+
+
+</RelativeLayout>

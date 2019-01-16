@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragment_bg_color"
+    tools:context="com.cloudsinc.welltekmobile.native_v2_welltek.activities.MainActivity">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="60dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/tab_bg_color"
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:padding="10dp"
+                android:id="@+id/img_back"
+                android:layout_width="@dimen/icon_height_size"
+                android:layout_height="@dimen/icon_height_size"
+                app:srcCompat="@drawable/down_white"
+                android:background="@null"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="5dp"
+                android:text=""/>
+
+
+            <TextView
+                android:id="@+id/txt_fragment_title"
+                android:layout_marginLeft="10dp"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/all_text_size_item_heading"
+                android:maxLines="1"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:text="Back"/>
+
+            <TextView
+                android:id="@+id/txt_save"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Save"
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:textSize="@dimen/all_text_size"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="end|right"/>
+
+            <Switch
+                style="@style/SCBSwitch"
+                android:checked="true"
+                android:visibility="gone"
+                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_gravity="end|right"
+                android:layout_weight="0"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/lin_no_data"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="@dimen/room_music_height"
+                android:layout_height="@dimen/room_music_height"
+                android:layout_gravity="center_horizontal"
+                android:padding="35dp"
+                app:srcCompat="@drawable/ic_heart_fill"
+                android:background="@drawable/circular_border_dialer_select"/>
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="WebViewLayout">
+                <me.biubiubiu.justifytext.library.JustifyTextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/all_text_size"
+                    android:textColor="@color/white"
+                    android:text="@string/fav_place_holder_title"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/all_text_size"
+                    android:text="have any favorites yet"/>
+
+
+                <TextView
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/all_text_size"
+                    android:textColor="@color/light_white"
+                    android:text="You can add any  Experiences or"/>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/all_text_size"
+                    android:textColor="@color/light_white"
+                    android:text="Elements to your favorites simply by"/>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/all_text_size"
+                    android:textColor="@color/light_white"
+                    android:text="tapping the green heart next to the"/>
+
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/all_text_size"
+                    android:textColor="@color/light_white"
+                    android:text="name. If you want to remove something"/>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/all_text_size"
+                    android:textColor="@color/light_white"
+                    android:text="just tab the heart again."/>
+                <WebView
+                    android:visibility="gone"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/textContent"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp"
+                    tools:ignore="WebViewLayout" />
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <include layout="@layout/custom_darwin_loading_layout"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rel_experiences_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/txt_experience"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:text="EXPERIENCES"
+                    android:textColor="@color/white"/>
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:layout_weight="1"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/rel_no_experiences"
+                    android:layout_width="350dp"
+                    android:layout_height="100dp"
+                    tools:ignore="ObsoleteLayoutParam">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        tools:ignore="UselessParent">
+                        <TextView
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#979797"
+                            android:textSize="@dimen/all_text_size"
+                            android:text="@string/no_experiences"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:textColor="#979797"
+                            android:textSize="@dimen/all_text_size"
+                            android:text="@string/no_experiences1"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_below="@+id/txt_experience"
+                    android:layout_weight="1"
+                    android:id="@+id/lin_fav_exp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:ignore="ObsoleteLayoutParam">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rec_exp_fav"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+                    </android.support.v7.widget.RecyclerView>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rel_element_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/txt_element_title"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:text="ELEMENTS"
+                    android:textColor="@color/white"/>
+                <RelativeLayout
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/rel_no_elements"
+                    android:layout_width="300dp"
+                    android:layout_height="100dp" >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        tools:ignore="UselessParent">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#979797"
+                            android:textSize="@dimen/all_text_size"
+                            android:text="@string/no_elements"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:textColor="#979797"
+                            android:textSize="@dimen/all_text_size"
+                            android:text="@string/no_elements1"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_below="@+id/txt_element_title"
+                    android:id="@+id/lin_fav_element"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rec_fav"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+                    </android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

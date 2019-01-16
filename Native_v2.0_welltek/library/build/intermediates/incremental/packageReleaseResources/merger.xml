@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main$Generated" generated="true"><source path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res"/><source path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/build/generated/res/rs/release"/><source path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/build/generated/res/resValues/release"/></dataSet><dataSet config="main" generated-set="main$Generated"><source path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res"><file path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/values-v21/dimens.xml" qualifiers="v21"><dimen name="nptp_bottom_sheet_grid_picker_fab_margin">16dp</dimen></file><file path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/values-v21/styles.xml" qualifiers="v21"><style name="NPTP_ButtonBackgroundStyle">
+        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+    </style></file><file path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/values/integers.xml" qualifiers=""><integer name="nptp_gridpicker_column_count">3</integer></file><file path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/values/dimens.xml" qualifiers=""><dimen name="nptp_gridpicker_button_height">64dp</dimen><dimen name="nptp_gridpicker_padding_start">8dp</dimen><dimen name="nptp_gridpicker_padding_end">8dp</dimen><dimen name="nptp_gridpicker_padding_top">8dp</dimen><dimen name="nptp_gridpicker_padding_bottom">8dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_padding_start">24dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_padding_end">24dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_padding_top">16dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_fab_margin">0dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_fab_elevation">6dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_peek_height">432dp</dimen><dimen name="nptp_numberpad_time_picker_alert_margin_start">-8dp</dimen><dimen name="nptp_numberpad_time_picker_alert_margin_end">-8dp</dimen><dimen name="nptp_numberpad_time_picker_header_height">72dp</dimen><dimen name="nptp_numberpad_time_picker_backspace_icon_size">24dp</dimen><dimen name="nptp_numberpad_time_picker_backspace_button_width">56dp</dimen><dimen name="nptp_numberpad_time_picker_ampm_header_margin_start">6dp</dimen><dimen name="nptp_numberpad_time_picker_ampm_header_margin_end">6dp</dimen></file><file path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/values/styles.xml" qualifiers=""><style name="NPTP_ButtonBackgroundStyle">
+        <item name="android:background">?selectableItemBackground</item>
+    </style><style name="NPTP_NumberPadTimePicker_BackspaceStyle" parent="NPTP_ButtonBackgroundStyle">
+    </style><style name="NPTP_NumberPadTimePicker_Base_FabStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/nptp_bottom_sheet_grid_picker_fab_margin</item>
+        <item name="android:layout_marginBottom">@dimen/nptp_bottom_sheet_grid_picker_fab_margin</item>
+        <item name="elevation">@dimen/nptp_bottom_sheet_grid_picker_fab_elevation</item>
+    </style><style name="NPTP_NumberPadTimePicker_FabStyle" parent="NPTP_NumberPadTimePicker_Base_FabStyle">
+        <item name="fabSize">auto</item>
+    </style><style name="NPTP_Base_NumberPadTimePickerStyle">
+        <item name="nptp_numberPadTimePickerLayout">standalone</item>
+        <item name="nptp_inputTimeTextColor">?android:attr/textColorPrimary</item>
+        <item name="nptp_inputAmPmTextColor">?android:attr/textColorPrimary</item>
+        <item name="nptp_backspaceTint">?attr/colorControlNormal</item>
+        <item name="nptp_numberKeysTextColor">?android:attr/textColorPrimary</item>
+        <item name="nptp_altKeysTextColor">?android:attr/textColorPrimary</item>
+        <item name="nptp_headerBackground">@null</item>
+        
+        <item name="nptp_numberPadBackground">@null</item>
+    </style><style name="NPTP_Base_NumberPadTimePickerAlertStyle" parent="NPTP_Base_NumberPadTimePickerStyle">
+        <item name="nptp_numberPadTimePickerLayout">alert</item>
+    </style><style name="NPTP_Base_NumberPadTimePickerBottomSheetStyle" parent="NPTP_Base_NumberPadTimePickerStyle">
+        <item name="nptp_numberPadTimePickerLayout">bottomSheet</item>
+        
+        <item name="nptp_fabBackgroundColor">@null</item>
+        <item name="nptp_animateFabBackgroundColor">true</item>
+        <item name="nptp_fabRippleColor">?attr/colorControlHighlight</item>
+        <item name="nptp_animateFabIn">false</item>
+        <item name="nptp_showFab">always</item>
+        <item name="nptp_backspaceLocation">header</item>
+        <item name="nptp_fabIconTint">?colorControlNormal</item>
+    </style><style name="NPTP_numberpad_textStyle" parent="NPTP_ButtonBackgroundStyle">  
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+
+    </style></file><file path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/values/attrs.xml" qualifiers=""><attr format="reference" name="nptp_numberPadTimePickerStyle"/><attr format="reference" name="nptp_numberPadTimePickerAlertDialogTheme"/><attr format="reference" name="nptp_numberPadTimePickerBottomSheetDialogTheme"/><declare-styleable name="NPTP_NumberPadTimePicker">
+        
+        <attr format="enum" name="nptp_numberPadTimePickerLayout">
+            
+            <enum name="standalone" value="0"/>
+            
+            <enum name="alert" value="1"/>
+            
+            <enum name="bottomSheet" value="2"/>
+        </attr>
+
+        
+        
+        
+
+        
+        <attr format="color" name="nptp_inputTimeTextColor"/>
+
+        
+        <attr format="color" name="nptp_inputAmPmTextColor"/>
+
+        
+        <attr format="color" name="nptp_backspaceTint"/>
+
+        
+        <attr format="color" name="nptp_numberKeysTextColor"/>
+
+        
+        <attr format="color" name="nptp_altKeysTextColor"/>
+
+        
+        <attr format="color|reference" name="nptp_headerBackground"/>
+
+        
+        <attr format="color|reference" name="nptp_divider"/>
+
+        
+        <attr format="color|reference" name="nptp_numberPadBackground"/>
+
+        
+        <attr format="boolean" name="nptp_is24HourMode"/>
+
+        
+        
+        
+
+        
+        <attr format="color" name="nptp_fabBackgroundColor"/>
+
+        
+        <attr format="boolean" name="nptp_animateFabBackgroundColor"/>
+
+        
+        <attr format="color" name="nptp_fabRippleColor"/>
+
+        
+        <attr format="boolean" name="nptp_animateFabIn"/>
+
+        
+        <attr format="enum" name="nptp_showFab">
+            
+            <enum name="always" value="0"/>
+            
+            <enum name="validTime" value="1"/>
+        </attr>
+
+        
+        <attr format="enum" name="nptp_backspaceLocation">
+            
+            <enum name="header" value="0"/>
+            
+            <enum name="footer" value="1"/>
+        </attr>
+
+        
+        <attr format="color" name="nptp_fabIconTint"/>
+    </declare-styleable></file><file path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/values-sw600dp/dimens.xml" qualifiers="sw600dp-v13"><dimen name="nptp_gridpicker_button_height">72dp</dimen><dimen name="nptp_gridpicker_padding_start">24dp</dimen><dimen name="nptp_gridpicker_padding_end">24dp</dimen><dimen name="nptp_gridpicker_padding_top">24dp</dimen><dimen name="nptp_gridpicker_padding_bottom">24dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_padding_top">24dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_fab_margin">16dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_fab_elevation">0dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_fab_size_large">72dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_peek_height">560dp</dimen><dimen name="nptp_numberpad_time_picker_alert_margin_start">-24dp</dimen><dimen name="nptp_numberpad_time_picker_alert_margin_end">-24dp</dimen><dimen name="nptp_numberpad_time_picker_header_height">128dp</dimen><dimen name="nptp_numberpad_time_picker_backspace_icon_size">32dp</dimen><dimen name="nptp_numberpad_time_picker_backspace_button_width">72dp</dimen><dimen name="nptp_numberpad_time_picker_ampm_header_margin_start">10dp</dimen><dimen name="nptp_numberpad_time_picker_ampm_header_margin_end">10dp</dimen><dimen name="nptp_numberpad_time_picker_width">496dp</dimen><dimen name="nptp_alert_dialog_width">@dimen/nptp_numberpad_time_picker_width</dimen><dimen name="nptp_bottom_sheet_dialog_width">@dimen/nptp_numberpad_time_picker_width</dimen></file><file path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/values-sw600dp/styles.xml" qualifiers="sw600dp-v13"><style name="NPTP_NumberPadTimePicker_FabStyle" parent="NPTP_NumberPadTimePicker_Base_FabStyle">
+        <item name="android:layout_width">@dimen/nptp_bottom_sheet_grid_picker_fab_size_large</item>
+        <item name="android:layout_height">@dimen/nptp_bottom_sheet_grid_picker_fab_size_large</item>
+    </style></file><file name="nptp_alert_numberpad_time_picker" path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/layout/nptp_alert_numberpad_time_picker.xml" qualifiers="" type="layout"/><file name="nptp_numberpad_time_picker_header" path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/layout/nptp_numberpad_time_picker_header.xml" qualifiers="" type="layout"/><file name="nptp_gridtest" path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/layout/nptp_gridtest.xml" qualifiers="" type="layout"/><file name="nptp_timepicker_container" path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/layout/nptp_timepicker_container.xml" qualifiers="" type="layout"/><file name="nptp_gridpicker_text_buttons" path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/layout/nptp_gridpicker_text_buttons.xml" qualifiers="" type="layout"/><file name="nptp_alert_numberpad_time_picker_dialog" path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/layout/nptp_alert_numberpad_time_picker_dialog.xml" qualifiers="" type="layout"/><file name="nptp_bottomsheet_numberpad_time_picker_dialog" path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/layout/nptp_bottomsheet_numberpad_time_picker_dialog.xml" qualifiers="" type="layout"/><file name="nptp_alert_dialog_button_bar_material" path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/layout/nptp_alert_dialog_button_bar_material.xml" qualifiers="" type="layout"/><file name="nptp_numberpad_time_picker" path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/layout/nptp_numberpad_time_picker.xml" qualifiers="" type="layout"/><file name="nptp_bottomsheet_numberpad_time_picker" path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/layout/nptp_bottomsheet_numberpad_time_picker.xml" qualifiers="" type="layout"/><file path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/values-sw600dp-v21/dimens.xml" qualifiers="sw600dp-v21"><dimen name="nptp_bottom_sheet_grid_picker_fab_margin">24dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_fab_elevation">6dp</dimen></file><file path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/values-sw820dp/dimens.xml" qualifiers="sw820dp-v13"><dimen name="nptp_numberpad_time_picker_width">560dp</dimen><dimen name="nptp_alert_dialog_width">@dimen/nptp_numberpad_time_picker_width</dimen><dimen name="nptp_bottom_sheet_dialog_width">@dimen/nptp_numberpad_time_picker_width</dimen><dimen name="nptp_gridpicker_button_height">96dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_peek_height">656dp</dimen><dimen name="nptp_numberpad_time_picker_backspace_icon_size">40dp</dimen><dimen name="nptp_numberpad_time_picker_backspace_button_width">88dp</dimen></file><file name="nptp_list_divider_material" path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/drawable/nptp_list_divider_material.xml" qualifiers="" type="drawable"/><file name="nptp_ic_done_24dp" path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/drawable/nptp_ic_done_24dp.xml" qualifiers="" type="drawable"/><file name="nptp_ic_backspace_24dp" path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/drawable/nptp_ic_backspace_24dp.xml" qualifiers="" type="drawable"/><file path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/values-land/dimens.xml" qualifiers="land"><dimen name="nptp_gridpicker_button_height">48dp</dimen><dimen name="nptp_gridpicker_padding_top">0dp</dimen><dimen name="nptp_gridpicker_padding_bottom">0dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_padding_top">8dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_fab_elevation">0dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_peek_height">328dp</dimen><dimen name="nptp_numberpad_time_picker_header_height">56dp</dimen><dimen name="nptp_numberpad_time_picker_width">300dp</dimen><dimen name="nptp_alert_dialog_width">@dimen/nptp_numberpad_time_picker_width</dimen><dimen name="nptp_bottom_sheet_dialog_width">@dimen/nptp_numberpad_time_picker_width</dimen></file><file path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/main/res/values-land-v21/dimens.xml" qualifiers="land-v21"><dimen name="nptp_bottom_sheet_grid_picker_fab_margin">8dp</dimen><dimen name="nptp_bottom_sheet_grid_picker_fab_elevation">6dp</dimen></file></source><source path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/build/generated/res/rs/release"/><source path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/build/generated/res/resValues/release"/></dataSet><dataSet config="release$Generated" generated="true"><source path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/release/res"/></dataSet><dataSet config="release" generated-set="release$Generated"><source path="/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/library/src/release/res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="NPTP_NumberPadTimePicker"><attr format="enum" name="nptp_numberPadTimePickerLayout">
+            
+            <enum name="standalone" value="0"/>
+            
+            <enum name="alert" value="1"/>
+            
+            <enum name="bottomSheet" value="2"/>
+        </attr><attr format="color" name="nptp_inputTimeTextColor"/><attr format="color" name="nptp_inputAmPmTextColor"/><attr format="color" name="nptp_backspaceTint"/><attr format="color" name="nptp_numberKeysTextColor"/><attr format="color" name="nptp_altKeysTextColor"/><attr format="color|reference" name="nptp_headerBackground"/><attr format="color|reference" name="nptp_divider"/><attr format="color|reference" name="nptp_numberPadBackground"/><attr format="boolean" name="nptp_is24HourMode"/><attr format="color" name="nptp_fabBackgroundColor"/><attr format="boolean" name="nptp_animateFabBackgroundColor"/><attr format="color" name="nptp_fabRippleColor"/><attr format="boolean" name="nptp_animateFabIn"/><attr format="enum" name="nptp_showFab">
+            
+            <enum name="always" value="0"/>
+            
+            <enum name="validTime" value="1"/>
+        </attr><attr format="enum" name="nptp_backspaceLocation">
+            
+            <enum name="header" value="0"/>
+            
+            <enum name="footer" value="1"/>
+        </attr><attr format="color" name="nptp_fabIconTint"/></declare-styleable></configuration></mergedItems></merger>

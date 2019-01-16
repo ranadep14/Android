@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="NPTP_ButtonBackgroundStyle">
+        <item name="android:background">?selectableItemBackground</item>
+    </style>
+
+    <style name="NPTP_NumberPadTimePicker_BackspaceStyle" parent="NPTP_ButtonBackgroundStyle">
+    </style>
+    
+    <style name="NPTP_NumberPadTimePicker_Base_FabStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/nptp_bottom_sheet_grid_picker_fab_margin</item>
+        <item name="android:layout_marginBottom">@dimen/nptp_bottom_sheet_grid_picker_fab_margin</item>
+        <item name="elevation">@dimen/nptp_bottom_sheet_grid_picker_fab_elevation</item>
+    </style>
+
+    <style name="NPTP_NumberPadTimePicker_FabStyle" parent="NPTP_NumberPadTimePicker_Base_FabStyle">
+        <item name="fabSize">auto</item>
+    </style>
+
+    <style name="NPTP_Base_NumberPadTimePickerStyle">
+        <item name="nptp_numberPadTimePickerLayout">standalone</item>
+        <item name="nptp_inputTimeTextColor">?android:attr/textColorPrimary</item>
+        <item name="nptp_inputAmPmTextColor">?android:attr/textColorPrimary</item>
+        <item name="nptp_backspaceTint">?attr/colorControlNormal</item>
+        <item name="nptp_numberKeysTextColor">?android:attr/textColorPrimary</item>
+        <item name="nptp_altKeysTextColor">?android:attr/textColorPrimary</item>
+        <item name="nptp_headerBackground">@null</item>
+        <!-- Divider is already set in the header view's layout. -->
+        <item name="nptp_numberPadBackground">@null</item>
+    </style>
+
+    <style name="NPTP_Base_NumberPadTimePickerAlertStyle" parent="NPTP_Base_NumberPadTimePickerStyle">
+        <item name="nptp_numberPadTimePickerLayout">alert</item>
+    </style>
+
+    <style name="NPTP_Base_NumberPadTimePickerBottomSheetStyle" parent="NPTP_Base_NumberPadTimePickerStyle">
+        <item name="nptp_numberPadTimePickerLayout">bottomSheet</item>
+        <!-- Default initialization of this attribute happens during construction in code.
+             The default result we want to achieve is not possible in XML below API 23. -->
+        <item name="nptp_fabBackgroundColor">@null</item>
+        <item name="nptp_animateFabBackgroundColor">true</item>
+        <item name="nptp_fabRippleColor">?attr/colorControlHighlight</item>
+        <item name="nptp_animateFabIn">false</item>
+        <item name="nptp_showFab">always</item>
+        <item name="nptp_backspaceLocation">header</item>
+        <item name="nptp_fabIconTint">?colorControlNormal</item>
+    </style>
+
+    <!-- @deprecated Use NPTP_Base_NumberPadTimePickerAlertStyle instead. -->
+
+    <!-- @deprecated Use NPTP_Base_NumberPadTimePickerBottomSheetStyle instead. -->
+
+    <style name="NPTP_numberpad_textStyle" parent="NPTP_ButtonBackgroundStyle" >  <!--change this to edit number pad text appearence-->
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+
+    </style>
+</resources>

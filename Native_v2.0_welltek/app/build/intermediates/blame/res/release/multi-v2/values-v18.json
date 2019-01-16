@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v18/values-v18.xml",
+            "map": [
+                {
+                    "source": "/home/developers/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0.aar/63e73720ebe0ca65352c9b8d51e29fea/res/values-v18/values-v18.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+    <LinearLayout
+        android:id="@+id/activity_main"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:visibility="invisible"
+            android:background="@color/transparent"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="8">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lyt_family_name"
+                android:layout_height="@dimen/setting_item_size"
+                android:baselineAligned="false">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    >
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_height="wrap_content"
+                        tools:ignore="UselessParent">
+                        <TextView
+                            android:id="@+id/txt_family_initial"
+                            android:text="D"
+                            android:gravity="center"
+                            android:textSize="@dimen/title_text_size"
+                            android:background="@drawable/circle_light_blue"
+                            android:layout_width="@dimen/icon_height_size"
+                            android:layout_height="@dimen/icon_height_size" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_height="wrap_content"
+                        tools:ignore="UselessParent">
+
+
+                        <TextView
+
+                            android:id="@+id/txt_family_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:text="Darwin"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_below="@+id/txt_family_name"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/white"
+                            android:text="Family"
+                            tools:ignore="ObsoleteLayoutParam" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lin_home"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="@dimen/icon_height_size">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    >
+                    <ImageView
+                        android:id="@+id/img_tab_home"
+                        android:padding="5dp"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        app:srcCompat="@drawable/ic_home"
+                        android:layout_width="@dimen/icon_height_size"
+                        android:layout_height="@dimen/icon_height_size" />
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/txt_tab_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="Home"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="@dimen/icon_height_size"
+                tools:ignore="UselessLeaf">
+                <!--<RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    >
+                    <ImageView
+                        android:id="@+id/img_tab_experinces"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:textSize="@dimen/title_text_size"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_experiences"
+                        android:layout_width="@dimen/icon_height_size"
+                        android:layout_height="@dimen/icon_height_size" />
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/txt_tab_experince"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="Experiences"/>-->
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="@dimen/icon_height_size"
+                tools:ignore="UselessLeaf">
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lin_discover"
+                android:layout_height="@dimen/icon_height_size">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    >
+                    <ImageView
+                        android:id="@+id/img_tab_discover"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:textSize="@dimen/title_text_size"
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/ic_discover"
+                        android:layout_width="@dimen/icon_height_size"
+                        android:layout_height="@dimen/icon_height_size" />
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/txt_tab_discover"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="Discover"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="@dimen/icon_height_size"
+                tools:ignore="UselessLeaf">
+               <!-- <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    >
+                    <ImageView
+                        android:id="@+id/img_tab_climate"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:textSize="@dimen/title_text_size"
+                        android:padding="5dp"
+                        android:src="@drawaic_climate_greymate"
+                        android:layout_width="@dimen/icon_height_size"
+                        android:layout_height="@dimen/icon_height_size" />
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/txt_tab_climate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="Climate"/>-->
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:background="@color/trans_whate"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/circular_progress_bar"
+                android:layout_width="@dimen/setting_item_size"
+                android:layout_height="@dimen/setting_item_size"
+                android:layout_marginTop="30dp"
+                android:indeterminate="false"
+                android:layout_centerInParent="true"/>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:id="@+id/txt_no_rooms_available"
+                android:layout_below="@id/circular_progress_bar"
+                android:textSize="@dimen/title_text_size"
+                android:textColor="@color/actionbar_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Connecting...."/>
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:weightSum="10"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent">
+            <FrameLayout
+                android:id="@+id/frm_main_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/bottom_menu_bar"
+                android:weightSum="4"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal"
+                android:layout_marginBottom="7dp"
+                android:background="@color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:baselineAligned="false">
+                <LinearLayout
+                    android:id="@+id/lin_favorites"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        tools:ignore="NestedWeights">
+                        <ImageView
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:textSize="@dimen/title_text_size"
+                            app:srcCompat="@drawable/favorite"
+                            android:layout_width="@dimen/icon_height_size"
+                            android:layout_height="@dimen/icon_height_size" />
+                    </RelativeLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/mob_menu_text_color"
+                        android:text="@string/favorites_text"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/lin_experiences"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        tools:ignore="NestedWeights">
+                        <ImageView
+                            android:id="@+id/img_tab_experinces"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:textSize="@dimen/title_text_size"
+                            app:srcCompat="@drawable/experience_icon"
+                            android:layout_width="@dimen/icon_height_size"
+                            android:layout_height="@dimen/icon_height_size" />
+                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/txt_tab_experince"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/mob_menu_text_color"
+                        android:text="Experiences"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/lin_elements"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        tools:ignore="NestedWeights">
+                        <ImageView
+                            android:id="@+id/img_tab_elements"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:textSize="@dimen/title_text_size"
+                            app:srcCompat="@drawable/ic_elements"
+                            android:layout_width="@dimen/icon_height_size"
+                            android:layout_height="@dimen/icon_height_size" />
+                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/txt_tab_elements"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/mob_menu_text_color"
+                        android:text="Elements"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/lin_climate"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        tools:ignore="NestedWeights">
+                        <ImageView
+                            android:id="@+id/img_tab_climate"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:textSize="@dimen/title_text_size"
+                            app:srcCompat="@drawable/ic_climate_grey"
+                            android:layout_width="@dimen/icon_height_size"
+                            android:layout_height="@dimen/icon_height_size" />
+                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/txt_tab_climate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/mob_menu_text_color"
+                        android:text="Climate"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

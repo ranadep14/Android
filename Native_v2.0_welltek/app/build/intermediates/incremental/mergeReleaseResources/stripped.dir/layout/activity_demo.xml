@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cloudsinc.welltekmobile.native_v2_welltek.activities.Demo">
+    <Button
+        android:id="@+id/today"
+        android:textColor="@android:color/white"
+        android:text="Today"
+        android:clickable="false"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.example.allsimulations.sheduleslider.NonSwipeableViewPager
+            android:id="@+id/scheduleViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:ignore="ObsoleteLayoutParam">
+        </com.example.allsimulations.sheduleslider.NonSwipeableViewPager>
+        <!--<android.support.v4.view.ViewPager
+            android:id="@+id/scheduleViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        </android.support.v4.view.ViewPager>-->
+        <Button
+            android:text="previous day"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:id="@+id/left_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|left"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/left"
+            android:drawablePadding="10dp"
+            />
+
+
+        <Button
+            android:text="next day"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:id="@+id/right_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:background="@android:color/transparent"
+            android:drawableRight="@drawable/right"
+            android:drawablePadding="10dp"
+
+            />
+
+    </FrameLayout>
+</RelativeLayout>

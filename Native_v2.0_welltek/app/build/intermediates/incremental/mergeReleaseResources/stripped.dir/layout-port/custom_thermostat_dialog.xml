@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="500dp"
+    android:orientation="vertical"
+    android:id="@+id/lin_main"
+    android:background="@color/dialog_bg"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+
+            android:layout_margin="10dp"
+            android:id="@+id/img_close"
+            android:layout_alignParentRight="true"
+            android:layout_width="@dimen/icon_height_size"
+            android:layout_height="@dimen/icon_height_size"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_close"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_thermostat_title"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="17dp"
+            android:textColor="@color/white"
+            android:text="Turn Off Climate Control?" />
+
+        <TextView
+            android:id="@+id/txt_thermostat_desc"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/icon_height_size"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/all_text_size"
+            android:textColor="@color/white"
+            android:text="@string/thermostat_place_holder_desc"
+            tools:ignore="ObsoleteLayoutParam" />
+        <TextView
+            android:id="@+id/txt_sub_desc"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/all_text_size"
+            android:textColor="@color/white"
+            android:text="Purification will remain active."
+            tools:ignore="ObsoleteLayoutParam" />
+
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="@dimen/icon_height_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_confirm"
+            android:textAllCaps="false"
+            android:layout_width="100dp"
+            android:layout_height="@dimen/icon_height_size"
+            android:layout_centerInParent="true"
+            android:text="Confirm"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_background_style"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

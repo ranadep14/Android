@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragment_bg_color"
+    android:orientation="vertical">
+    <include layout="@layout/customise_sub_action_bar"/>
+    <LinearLayout
+        android:paddingRight="@dimen/actionbar_height"
+        android:paddingLeft="@dimen/actionbar_height"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/setting_item_size"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+
+            android:weightSum="10">
+            <TextView
+                android:text="Internet Access"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/all_text_size"
+                android:layout_centerInParent="true"
+                android:layout_weight="1"
+                tools:ignore="ObsoleteLayoutParam" />
+            <RelativeLayout
+                android:visibility="gone"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:id="@+id/rel_int_status_green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               >
+                <View
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/green_circle"
+                    android:layout_width="@dimen/all_text_size"
+                    android:layout_height="@dimen/all_text_size"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rel_int_status_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp">
+                <View
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/red_circle"
+                    android:layout_width="@dimen/all_text_size"
+                    android:layout_height="@dimen/all_text_size"/>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/divider_color"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/setting_item_size"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:weightSum="10">
+            <TextView
+                android:text="Cloud Connection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/all_text_size"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:layout_weight="1"
+                tools:ignore="ObsoleteLayoutParam" />
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rel_cloud_status_green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp">
+                <View
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/green_circle"
+                    android:layout_width="@dimen/all_text_size"
+                    android:layout_height="@dimen/all_text_size"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rel_cloud_status_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp">
+                <View
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/red_circle"
+                    android:layout_width="@dimen/all_text_size"
+                    android:layout_height="@dimen/all_text_size"/>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/divider_color"/>
+
+
+
+        <LinearLayout
+            android:id="@+id/lin_email_setup"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:gravity="center_vertical"
+
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/setting_item_size"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                android:baselineAligned="false">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3">
+                    <TextView
+                        android:text="Email Setup"
+                        android:textSize="@dimen/all_text_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        tools:ignore="ObsoleteLayoutParam" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7">
+                    <ImageView
+                        android:padding="6dp"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="@dimen/icon_height_size"
+                        android:layout_height="@dimen/icon_height_size"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/right_white"
+                        tools:ignore="ObsoleteLayoutParam" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/divider_color"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lin_wireless_setup"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:gravity="center_vertical"
+
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/setting_item_size"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:baselineAligned="false">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3">
+                <TextView
+                    android:id="@+id/txt_wireless_setup"
+                    android:text="Wireless Setup: not connected"
+                    android:textSize="@dimen/all_text_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    tools:ignore="ObsoleteLayoutParam" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="7">
+                <ImageView
+                    android:padding="6dp"
+                    android:id="@+id/img_wireless_enter"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="@dimen/icon_height_size"
+                    android:layout_height="@dimen/icon_height_size"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/right_white"
+                    tools:ignore="ObsoleteLayoutParam" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/divider_color"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lin_eth_setup"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+<LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/setting_item_size"
+            android:orientation="horizontal"
+            android:weightSum="10"
+    android:baselineAligned="false">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3">
+                <TextView
+                    android:id="@+id/txt_ethernet_setup"
+                    android:text="Ethernet Setup: not connected"
+                    android:textSize="@dimen/all_text_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    tools:ignore="ObsoleteLayoutParam" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="7">
+                <ImageView
+                    android:id="@+id/img_ethernet_enter"
+                    android:padding="6dp"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="@dimen/icon_height_size"
+                    android:layout_height="@dimen/icon_height_size"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/right_white"
+                    tools:ignore="ObsoleteLayoutParam" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/divider_color"/>
+            </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"/>
+
+
+    <Button
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/btn_reset"
+        android:textSize="@dimen/all_text_size"
+        android:textColor="@color/whate"
+        android:background="@drawable/button_background_style"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Reset Network Settings"
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"
+        tools:ignore="ObsoleteLayoutParam" />
+
+</LinearLayout>
+

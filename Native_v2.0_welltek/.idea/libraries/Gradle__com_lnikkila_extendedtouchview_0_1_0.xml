@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.lnikkila:extendedtouchview-0.1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/extendedtouchview-0.1.0.aar/7bbaa375186f0cdac93602a2c5878fe4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/extendedtouchview-0.1.0.aar/7bbaa375186f0cdac93602a2c5878fe4/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.lnikkila/extendedtouchview/0.1.0/fdbc809454eb5b14fe31c6ffd48a16609ba6020a/extendedtouchview-0.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.xiaochencode.percentprogressbar:PercentProgressBar-1.0.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/PercentProgressBar-1.0.0.aar/0545ff9df4aa8ae6f7d6403f21885dba/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/PercentProgressBar-1.0.0.aar/0545ff9df4aa8ae6f7d6403f21885dba/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.xiaochencode.percentprogressbar/PercentProgressBar/1.0.0/baa8ee9885003777b29eccebea45caaff6349843/PercentProgressBar-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

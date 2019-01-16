@@ -1,0 +1,1832 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragment_back_color"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="5">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:scaleType="fitXY"
+                    android:alpha="0.5"
+                    android:src="@drawable/darwin_comfort"/>
+                <LinearLayout
+                    android:id="@+id/lin_comfort"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="100"
+                    android:baselineAligned="false"
+                    tools:ignore="ObsoleteLayoutParam">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:orientation="horizontal"
+                        android:weightSum="100"
+                        tools:ignore="InefficientWeight,UselessParent">
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/rel_comfort"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/trans_dark_blue"></RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:paddingRight="10dp"
+                            android:weightSum="100"
+                            android:baselineAligned="false"
+                            tools:ignore="ObsoleteLayoutParam">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="15"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    tools:ignore="NestedWeights">
+
+                                    <ImageView
+                                        android:id="@+id/img_comfort"
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        android:padding="5dp"
+                                        app:srcCompat="@drawable/ic_heart_unfill"
+                                        tools:ignore="TooDeepLayout" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    tools:ignore="UselessLeaf"></LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="85"
+                                android:orientation="vertical"
+                                android:weightSum="100">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="70"
+                                    android:orientation="horizontal"
+                                    android:weightSum="100"
+                                    android:baselineAligned="false"
+                                    tools:ignore="NestedWeights">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="75"
+                                        android:orientation="vertical"
+                                        android:weightSum="2"
+                                        tools:ignore="NestedWeights">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom"
+                                            tools:ignore="NestedWeights">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/activites_comfort"
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/all_text_size_item_heading" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="top">
+
+                                            <TextView
+                                                android:id="@+id/txt_comfort_rooms"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="All rooms"
+                                                android:textColor="@color/off_white_text"
+                                                android:textSize="@dimen/all_text_size" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="25"
+                                        android:orientation="vertical">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom">
+
+                                            <TextView
+
+                                                android:id="@+id/txt_comfort_active_deactive"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="right|center_vertical"
+                                                android:text="RESET"
+                                                android:textColor="@color/white" />
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_weight="1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            tools:ignore="UselessLeaf"></LinearLayout>
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/lin_comfort_svg"
+                                    android:layout_width="match_parent"
+                                    android:alpha="0.5"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="30"
+                                    android:gravity="right">
+
+                                    <ImageView
+                                        android:visibility="gone"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        app:srcCompat="@drawable/expaudio" />
+
+                                    <ImageView
+                                        android:layout_marginRight="5dp"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_circadian_white" />
+
+                                    <ImageView
+                                        android:padding="5dp"
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_energise" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:scaleType="fitXY"
+                    android:alpha="0.5"
+                    android:src="@drawable/sleep_comfort"/>
+                <LinearLayout
+                    android:id="@+id/lin_prepare"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="100"
+                    android:baselineAligned="false"
+                    tools:ignore="ObsoleteLayoutParam">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:orientation="horizontal"
+                        android:weightSum="100"
+                        tools:ignore="InefficientWeight,UselessParent">
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/rel_prepare"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/trans_dark_blue"></RelativeLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:paddingRight="10dp"
+                            android:weightSum="100"
+                            android:baselineAligned="false"
+                            tools:ignore="ObsoleteLayoutParam">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="15"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    tools:ignore="NestedWeights">
+
+                                    <ImageView
+                                        android:id="@+id/img_prepare_for_sleep"
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        android:padding="5dp"
+                                        app:srcCompat="@drawable/ic_heart_unfill" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    tools:ignore="UselessLeaf"></LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="85"
+                                android:orientation="vertical"
+                                android:weightSum="100">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="70"
+                                    android:orientation="horizontal"
+                                    android:weightSum="100"
+                                    android:baselineAligned="false"
+                                    tools:ignore="NestedWeights">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="75"
+                                        android:orientation="vertical"
+                                        android:weightSum="2"
+                                        tools:ignore="NestedWeights">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom"
+                                            tools:ignore="NestedWeights">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/activites_prepare"
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/all_text_size_item_heading" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="top">
+
+                                            <TextView
+                                                android:id="@+id/txt_prepare_for_sleep_rooms"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text=""
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/all_text_size" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="25"
+                                        android:orientation="vertical">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom">
+
+                                            <TextView
+
+                                                android:id="@+id/txt_prepare_active_deactive"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="right|center_vertical"
+                                                android:text=""
+                                                android:textColor="@color/white" />
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_weight="1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            tools:ignore="UselessLeaf"></LinearLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="30"
+                                    android:gravity="right"
+                                    android:id="@+id/lin_sleep_svg"
+                                    android:alpha="0.5"
+                                    >
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_bulb_white" />
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_blinds_white" />
+                                    <ImageView
+                                        android:padding="5dp"
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_music_logo_white" />
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_climate_white" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:scaleType="fitXY"
+                    android:alpha="0.5"
+                    android:src="@drawable/relax_comfort"/>
+                <LinearLayout
+                    android:id="@+id/lin_relax"
+
+
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="100"
+                    android:baselineAligned="false"
+                    tools:ignore="ObsoleteLayoutParam">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:orientation="horizontal"
+                        android:weightSum="100"
+                        tools:ignore="InefficientWeight,UselessParent">
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/rel_relax"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/trans_dark_blue"></RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:paddingRight="10dp"
+                            android:weightSum="100"
+                            android:baselineAligned="false"
+                            tools:ignore="ObsoleteLayoutParam">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="15"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    tools:ignore="NestedWeights">
+                                    <ImageView
+                                        android:id="@+id/img_relax"
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        android:padding="5dp"
+                                        app:srcCompat="@drawable/ic_heart_unfill" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    tools:ignore="UselessLeaf"></LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="85"
+                                android:orientation="vertical"
+                                android:weightSum="100">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="70"
+                                    android:orientation="horizontal"
+                                    android:weightSum="100"
+                                    android:baselineAligned="false"
+                                    tools:ignore="NestedWeights">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="75"
+                                        android:orientation="vertical"
+                                        android:weightSum="2"
+                                        tools:ignore="NestedWeights">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom"
+                                            tools:ignore="NestedWeights">
+
+                                            <TextView
+                                                android:id="@+id/txt_relax"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/activites_relax"
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/all_text_size_item_heading" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="top">
+
+                                            <TextView
+                                                android:id="@+id/txt_relax_rooms"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text=""
+                                                android:textColor="@color/off_white_text"
+                                                android:textSize="@dimen/all_text_size" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="25"
+                                        android:orientation="vertical">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom">
+
+                                            <TextView
+
+                                                android:id="@+id/txt_relax_active_deactive"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="right|center_vertical"
+                                                android:text=""
+                                                android:textColor="@color/white" />
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_weight="1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            tools:ignore="UselessLeaf"></LinearLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/lin_relax_svg"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="30"
+                                    android:gravity="right"
+                                    android:alpha="0.5"
+
+                                    >
+
+
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_bulb_white" />
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/remediation" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:scaleType="fitXY"
+                    android:alpha="0.5"
+                    android:src="@drawable/energize_comfort"
+                    tools:ignore="TooManyViews" />
+                <LinearLayout
+                    android:id="@+id/lin_energise"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="100"
+                    android:baselineAligned="false"
+                    tools:ignore="ObsoleteLayoutParam">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:orientation="horizontal"
+                        android:weightSum="100"
+                        tools:ignore="InefficientWeight,UselessParent">
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/rel_energise"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/trans_dark_blue"></RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:paddingRight="10dp"
+                            android:weightSum="100"
+                            android:baselineAligned="false"
+                            tools:ignore="ObsoleteLayoutParam">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="15"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    tools:ignore="NestedWeights">
+
+                                    <ImageView
+                                        android:id="@+id/img_energize"
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        android:padding="5dp"
+                                        app:srcCompat="@drawable/ic_heart_unfill" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    tools:ignore="UselessLeaf"></LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="85"
+                                android:orientation="vertical"
+                                android:weightSum="100">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="70"
+                                    android:orientation="horizontal"
+                                    android:weightSum="100"
+                                    android:baselineAligned="false"
+                                    tools:ignore="NestedWeights">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="75"
+                                        android:orientation="vertical"
+                                        android:weightSum="2"
+                                        tools:ignore="NestedWeights">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom"
+                                            tools:ignore="NestedWeights">
+
+                                            <TextView
+                                                android:id="@+id/txt_energize"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/activites_energise"
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/all_text_size_item_heading" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="top">
+
+                                            <TextView
+                                                android:id="@+id/txt_energise_rooms"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text=""
+                                                android:textColor="@color/off_white_text"
+                                                android:textSize="@dimen/all_text_size" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="25"
+                                        android:orientation="vertical">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom">
+
+                                            <TextView
+
+                                                android:id="@+id/txt_egerise_active_deactive"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="right|center_vertical"
+                                                android:text=""
+                                                android:textColor="@color/white" />
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_weight="1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            tools:ignore="UselessLeaf"></LinearLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/lin_eng_svg"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="30"
+                                    android:gravity="right"
+                                    android:alpha="0.5"
+
+                                    >
+
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_bulb_white" />
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/remediation" />
+
+
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:scaleType="fitXY"
+                    android:alpha="0.5"
+                    android:src="@drawable/cooking_comfort"/>
+                <LinearLayout
+                    android:id="@+id/lin_cooking"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="100"
+                    android:baselineAligned="false"
+                    tools:ignore="ObsoleteLayoutParam">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:orientation="horizontal"
+                        android:weightSum="100"
+                        tools:ignore="InefficientWeight,UselessParent">
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/rel_cooking"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/trans_dark_blue"></RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:paddingRight="10dp"
+                            android:weightSum="100"
+                            android:baselineAligned="false"
+                            tools:ignore="ObsoleteLayoutParam">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="15"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    tools:ignore="NestedWeights">
+                                    <ImageView
+                                        android:id="@+id/img_cooking"
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        android:padding="5dp"
+                                        app:srcCompat="@drawable/ic_heart_unfill" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    tools:ignore="UselessLeaf"></LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="85"
+                                android:orientation="vertical"
+                                android:weightSum="100">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="70"
+                                    android:orientation="horizontal"
+                                    android:weightSum="100"
+                                    android:baselineAligned="false"
+                                    tools:ignore="NestedWeights">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="75"
+                                        android:orientation="vertical"
+                                        android:weightSum="2"
+                                        tools:ignore="NestedWeights">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom"
+                                            tools:ignore="NestedWeights">
+
+                                            <TextView
+                                                android:id="@+id/txt_cooking"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/activites_cooking"
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/all_text_size_item_heading" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical"
+                                            android:gravity="top">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/kitchen_only"
+                                                android:textColor="@color/off_white_text"
+                                                android:textSize="@dimen/all_text_size" />
+
+                                            <TextView
+                                                android:id="@+id/txt_cooking_rooms"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text=""
+                                                android:textColor="@color/off_white_text"
+                                                android:textSize="@dimen/all_text_size" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="25"
+                                        android:orientation="vertical">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom">
+
+                                            <TextView                                                                             android:id="@+id/txt_cooking_active_deactive"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="right|center_vertical"
+                                                android:text=""
+                                                android:textColor="@color/white" />
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_weight="1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            tools:ignore="UselessLeaf"></LinearLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="30"
+                                    android:gravity="right"
+                                    android:alpha="0.5"
+                                    android:id="@+id/lin_cook_svg"
+                                    >
+
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_bulb_white" />
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_cook_white" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lyt_circadian_demo"
+                android:visibility="gone"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:scaleType="fitXY"
+                    android:alpha="0.5"
+                    android:src="@drawable/darwin_comfort"/>
+                <LinearLayout
+                    android:id="@+id/lin_circadian_demo"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="100"
+                    android:baselineAligned="false"
+                    tools:ignore="ObsoleteLayoutParam">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:orientation="horizontal"
+                        android:weightSum="100"
+                        tools:ignore="InefficientWeight,UselessParent">
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/rel_circadian_demo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/trans_dark_blue"></RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:paddingRight="10dp"
+                            android:weightSum="100"
+                            android:baselineAligned="false"
+                            tools:ignore="ObsoleteLayoutParam">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="15"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:visibility="invisible"
+                                    android:orientation="horizontal"
+                                    tools:ignore="NestedWeights">
+
+                                    <ImageView
+                                        android:id="@+id/img_circadian_demo"
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        android:padding="5dp"
+                                        app:srcCompat="@drawable/ic_heart_unfill" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    tools:ignore="UselessLeaf"></LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="85"
+                                android:orientation="vertical"
+                                android:weightSum="100">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="70"
+                                    android:orientation="horizontal"
+                                    android:weightSum="100"
+                                    android:baselineAligned="false"
+                                    tools:ignore="NestedWeights">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="75"
+                                        android:orientation="vertical"
+                                        android:weightSum="2"
+                                        tools:ignore="NestedWeights">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom"
+                                            tools:ignore="NestedWeights">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/activites_circadian_demo"
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/all_text_size_item_heading" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="top">
+
+                                            <TextView
+                                                android:visibility="gone"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Kitchen Only"
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/all_text_size" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="25"
+                                        android:orientation="vertical">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom">
+
+                                            <TextView
+
+                                                android:id="@+id/txt_circadian_demo_active_deactive"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="right|center_vertical"
+                                                android:text=""
+                                                android:textColor="@color/white" />
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_weight="1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            tools:ignore="UselessLeaf"></LinearLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="30"
+                                    android:gravity="right"
+                                    android:alpha="0.5"
+                                    >
+
+
+                                    <ImageView
+                                        android:layout_marginRight="5dp"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_circadian_white" />
+
+                                    <ImageView
+                                        android:padding="5dp"
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_energise" />
+
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lyt_dawn_demo"
+                android:visibility="gone"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:scaleType="fitXY"
+                    android:alpha="0.5"
+                    android:src="@drawable/darwin_comfort"/>
+                <LinearLayout
+                    android:id="@+id/lin_dawn_demo"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="100"
+                    android:baselineAligned="false"
+                    tools:ignore="ObsoleteLayoutParam">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:orientation="horizontal"
+                        android:weightSum="100"
+                        tools:ignore="InefficientWeight,UselessParent">
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/rel_dawn_demo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/trans_dark_blue"></RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:paddingRight="10dp"
+                            android:weightSum="100"
+                            android:baselineAligned="false"
+                            tools:ignore="ObsoleteLayoutParam">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="15"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:visibility="invisible"
+                                    android:orientation="horizontal"
+                                    tools:ignore="NestedWeights">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        android:padding="5dp"
+                                        app:srcCompat="@drawable/ic_heart_unfill" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    tools:ignore="UselessLeaf"></LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="85"
+                                android:orientation="vertical"
+                                android:weightSum="100">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="70"
+                                    android:orientation="horizontal"
+                                    android:weightSum="100"
+                                    android:baselineAligned="false"
+                                    tools:ignore="NestedWeights">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="75"
+                                        android:orientation="vertical"
+                                        android:weightSum="2"
+                                        tools:ignore="NestedWeights">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom"
+                                            tools:ignore="NestedWeights">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Dawn Demo"
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/all_text_size_item_heading" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="top">
+
+                                            <TextView
+                                                android:visibility="gone"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Kitchen Only"
+                                                android:textColor="@color/off_white_text"
+                                                android:textSize="@dimen/all_text_size" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="25"
+                                        android:orientation="vertical">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom">
+
+                                            <TextView
+
+                                                android:id="@+id/txt_dawn_demo_active_deactive"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="right|center_vertical"
+                                                android:text=""
+                                                android:textColor="@color/white" />
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_weight="1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            tools:ignore="UselessLeaf"></LinearLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="30"
+                                    android:gravity="right"
+                                    android:id="@+id/lin_dawn_demo_svg"
+                                    android:alpha="0.5"
+
+                                    >
+
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_bulb_white" />
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_blinds_white" />
+                                    <ImageView
+                                        android:padding="5dp"
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_music_logo_white" />
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_climate_white" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lyt_sleep_demo"
+                android:visibility="gone"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:scaleType="fitXY"
+                    android:alpha="0.5"
+                    android:src="@drawable/sleep_comfort"/>
+                <LinearLayout
+                    android:id="@+id/lin_sleep_demo"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="100"
+                    android:baselineAligned="false"
+                    tools:ignore="ObsoleteLayoutParam">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:orientation="horizontal"
+                        android:weightSum="100"
+                        tools:ignore="InefficientWeight,UselessParent">
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/rel_sleep_demo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/trans_dark_blue"></RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:paddingRight="10dp"
+                            android:weightSum="100"
+                            android:baselineAligned="false"
+                            tools:ignore="ObsoleteLayoutParam">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="15"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:visibility="invisible"
+                                    android:orientation="horizontal"
+                                    tools:ignore="NestedWeights">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        android:padding="5dp"
+                                        app:srcCompat="@drawable/ic_heart_unfill" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    tools:ignore="UselessLeaf"></LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="85"
+                                android:orientation="vertical"
+                                android:weightSum="100">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="70"
+                                    android:orientation="horizontal"
+                                    android:weightSum="100"
+                                    android:baselineAligned="false"
+                                    tools:ignore="NestedWeights">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="75"
+                                        android:orientation="vertical"
+                                        android:weightSum="2"
+                                        tools:ignore="NestedWeights">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom"
+                                            tools:ignore="NestedWeights">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Sleep Demo"
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/all_text_size_item_heading" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="top">
+
+                                            <TextView
+                                                android:visibility="gone"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Kitchen Only"
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/all_text_size" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="25"
+                                        android:orientation="vertical">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom">
+
+                                            <TextView
+
+                                                android:id="@+id/txt_sleep_demo_active_deactive"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="right|center_vertical"
+                                                android:text=""
+                                                android:textColor="@color/white" />
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_weight="1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            tools:ignore="UselessLeaf"></LinearLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="30"
+                                    android:gravity="right"
+                                    android:alpha="0.5"
+                                    android:id="@+id/lin_sleep_demo_svg"
+
+                                    >
+
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_bulb_white" />
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_blinds_white" />
+                                    <ImageView
+                                        android:padding="5dp"
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_music_logo_white" />
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_climate_white" />
+
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+            <!-- display demo -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lyt_display_demo"
+                android:visibility="gone"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:scaleType="fitXY"
+                    android:alpha="0.5"
+                    android:src="@drawable/darwin_comfort"/>
+                <LinearLayout
+                    android:id="@+id/lin_display"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="100"
+                    android:baselineAligned="false"
+                    tools:ignore="ObsoleteLayoutParam">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:orientation="horizontal"
+                        android:weightSum="100"
+                        tools:ignore="InefficientWeight,UselessParent">
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/rel_display_demo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/trans_dark_blue"></RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:paddingRight="10dp"
+                            android:weightSum="100"
+                            android:baselineAligned="false"
+                            tools:ignore="ObsoleteLayoutParam">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="15"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:visibility="invisible"
+                                    android:orientation="horizontal"
+                                    tools:ignore="NestedWeights">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        android:padding="5dp"
+                                        app:srcCompat="@drawable/ic_heart_unfill" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    tools:ignore="UselessLeaf"></LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="85"
+                                android:orientation="vertical"
+                                android:weightSum="100">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="70"
+                                    android:orientation="horizontal"
+                                    android:weightSum="100"
+                                    android:baselineAligned="false"
+                                    tools:ignore="NestedWeights">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="75"
+                                        android:orientation="vertical"
+                                        android:weightSum="2"
+                                        tools:ignore="NestedWeights">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom"
+                                            tools:ignore="NestedWeights">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Display Demo"
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/all_text_size_item_heading" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="top">
+
+                                            <TextView
+                                                android:visibility="visible"
+                                                android:text=""
+                                                android:id="@+id/txt_disp_rooms"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/all_text_size" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="25"
+                                        android:orientation="vertical">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="bottom">
+
+                                            <TextView                                               android:id="@+id/txt_display_demo_active_deactive"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="right|center_vertical"
+                                                android:text=""
+                                                android:textColor="@color/white" />
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_weight="1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            tools:ignore="UselessLeaf"></LinearLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="30"
+                                    android:gravity="right"
+                                    android:id="@+id/lin_display_demo_svg"
+                                    android:alpha="0.5"
+
+                                    >
+
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_bulb_white" />
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_blinds_white" />
+                                    <ImageView
+                                        android:padding="5dp"
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_music_logo_white" />
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_height_size"
+                                        android:layout_height="@dimen/icon_height_size"
+                                        app:srcCompat="@drawable/ic_climate_white" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

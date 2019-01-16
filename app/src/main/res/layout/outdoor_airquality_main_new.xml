@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <WebView
+            android:saveEnabled="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/leaflet"
+            android:clickable="false"
+
+            android:background="@color/transparent"
+            />
+        <ImageView
+            android:id="@+id/close_nav"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="5dp"
+            android:visibility="visible"
+            android:layout_weight="2"
+            android:background="@color/transparent"
+            android:layout_gravity="end|top|right"
+            android:src="@drawable/ic_dialog_close_light"
+            tools:ignore="ObsoleteLayoutParam" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2"
+            android:baselineAligned="false">
+
+
+            <!-- LEFT -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.9"
+                android:background="@color/transparent"
+                android:orientation="vertical">
+
+
+
+                <RelativeLayout
+                    android:id="@+id/rel_visiblity"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:visibility="visible"
+                    tools:ignore="ObsoleteLayoutParam,UselessParent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        tools:ignore="UselessParent">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/body"
+                            android:id="@+id/outdoor_time"
+                            android:layout_marginTop="30dp"
+                            android:gravity="center_horizontal"
+                            android:text=""/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/h2"
+                            android:layout_margin="5dp"
+                            android:gravity="center_horizontal"
+                            android:text="Outdoor Air Quality"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </LinearLayout>
+            <!-- Right -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.17"
+                android:orientation="vertical"
+                android:weightSum="100">
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="57"
+                    app:cardElevation="12dp"
+                    tools:ignore="NestedWeights">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <com.jjoe64.graphview.GraphView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/graph"
+                        android:layout_marginTop="50dp"
+                        android:visibility="visible"/>
+
+
+                    <FrameLayout
+                        android:id="@+id/fragment_container_forecast"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="50dp"
+                        android:visibility="visible">
+                        <!--     <fragment
+                             android:name="com.cloudsinc.welltekmobile.native_v2_welltek.fragments.home.ForecastFragment"
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent">
+
+                           </fragment>-->
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            tools:ignore="UselessParent">
+                            <!-- TODO: Update blank fragment layout -->
+                            <com.jjoe64.graphview.GraphView
+                                android:visibility="gone"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                            <!--
+                                Below layout contain Smoothline chart
+                            -->
+
+                            <LinearLayout
+                                android:visibility="visible"
+                                android:weightSum="345"
+                                android:background="@color/white"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:baselineAligned="false">
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_weight="45"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    tools:ignore="TooDeepLayout">
+                                    <FrameLayout
+                                        android:layout_weight="5"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        tools:ignore="NestedWeights">
+                                        <TextView
+                                            android:layout_gravity="center_horizontal|top"
+                                            android:text="100"
+                                            android:layout_marginTop="5dp"
+                                            android:gravity="right"
+                                            android:textColor="@color/light_black"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content" />
+                                        <TextView
+                                            android:rotation="270"
+                                            android:layout_gravity="center"
+                                            android:text="SCORE"
+                                            android:textStyle="bold"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content" />
+                                        <TextView
+                                            android:layout_gravity="center_horizontal|bottom"
+                                            android:text="0"
+                                            android:textColor="@color/light_black"
+                                            android:layout_width="match_parent"
+                                            android:gravity="right"
+                                            android:layout_height="wrap_content" />
+                                    </FrameLayout>
+                                    <FrameLayout
+                                        android:layout_weight="50"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        tools:ignore="UselessLeaf"></FrameLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_weight="290"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent">
+                                    <LinearLayout
+                                        android:layout_weight="50"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:baselineAligned="false"
+                                        tools:ignore="NestedWeights">
+                                        <FrameLayout
+                                            android:layout_weight="5"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            tools:ignore="NestedWeights,UselessParent">
+                                            <com.cloudsinc.welltekmobile.native_v2_welltek.fragments.home.smooth_line_chart.SmoothLineChart
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:id="@+id/smoothChart"
+                                                android:background="@android:color/white" />
+                                        </FrameLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_weight="5"
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp">
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            tools:ignore="UselessParent">
+
+                                            <TextView
+                                                android:text=""
+                                                android:id="@+id/endtime"
+                                                android:textColor="@color/light_black"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentTop="true"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_alignParentEnd="true" />
+
+                                            <TextView
+                                                android:text=""
+                                                android:id="@+id/starttime"
+                                                android:textColor="@color/light_black"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_alignParentTop="true"
+                                                android:layout_alignParentLeft="true"
+                                                android:layout_alignParentStart="true" />
+                                        </RelativeLayout>
+
+
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+
+
+
+
+
+
+                            </LinearLayout>
+
+                            <!--
+                            Below layout contain Smoothline chart with Equally Spaced
+                        -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:weightSum="5"
+                                android:visibility="gone"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/all_text_size"
+                                    android:text="FORECASTED AIR QUALITY"
+                                    android:gravity="center_horizontal"
+                                    android:layout_margin="10dp"/>
+
+
+                                <LinearLayout
+                                    android:weightSum="345"
+                                    android:visibility="visible"
+                                    android:background="@color/white"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal"
+                                    android:baselineAligned="false">
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_weight="55"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent">
+                                        <FrameLayout
+                                            android:layout_weight="5"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            tools:ignore="NestedWeights">
+                                            <TextView
+                                                android:layout_gravity="center_horizontal|top"
+                                                android:text="100"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content" />
+                                            <TextView
+                                                android:rotation="270"
+                                                android:layout_gravity="center"
+                                                android:text="SCORE"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content" />
+                                            <TextView
+                                                android:layout_gravity="center_horizontal|bottom"
+                                                android:text="0"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content" />
+                                        </FrameLayout>
+                                        <FrameLayout
+                                            android:layout_weight="50"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            tools:ignore="UselessLeaf"></FrameLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_weight="290"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent">
+                                        <LinearLayout
+                                            android:layout_weight="50"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:baselineAligned="false"
+                                            tools:ignore="NestedWeights">
+                                            <FrameLayout
+                                                android:layout_weight="5"
+                                                android:layout_marginRight="10dp"
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                tools:ignore="NestedWeights,UselessParent">
+                                                <com.cloudsinc.welltekmobile.native_v2_welltek.fragments.home.smooth_line_chart.SmoothLineChartEquallySpaced
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:background="@android:color/white" />
+                                            </FrameLayout>
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_weight="5"
+                                            android:orientation="horizontal"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp">
+                                            <RelativeLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                tools:ignore="UselessParent">
+
+                                                <TextView
+                                                    android:text="3:40"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_alignParentTop="true"
+                                                    android:layout_alignParentRight="true"
+                                                    android:layout_alignParentEnd="true" />
+
+                                                <TextView
+                                                    android:text="15:40"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_alignParentTop="true"
+                                                    android:layout_alignParentLeft="true"
+                                                    android:layout_alignParentStart="true" />
+                                            </RelativeLayout>
+
+
+
+                                        </LinearLayout>
+
+
+                                    </LinearLayout>
+
+
+
+
+
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </FrameLayout>
+
+                    </FrameLayout>
+                        <TextView
+                            android:text="FORECASTED Air Quality"
+                            android:textSize="22sp"
+                            android:padding="10dp"
+                            android:gravity="center"
+                            android:textAllCaps="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+
+                    </FrameLayout>
+                </android.support.v7.widget.CardView>
+
+
+                    <RelativeLayout
+                        android:id="@+id/frm_expriencesmain_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="43"
+                        android:background="@color/white"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        >
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/lyt_popullant">
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="10dp"
+                            android:id="@+id/click_populant"
+                            android:weightSum="10">
+
+
+                            <TextView
+                                android:textSize="20sp"
+                                android:layout_weight="0"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_horizontal"
+                                android:layout_gravity="center_horizontal"
+                                android:text="CONTRIBUTING POLLUTANTS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="5"
+                                android:clickable="false"
+                                android:orientation="horizontal"
+                                android:weightSum="3"
+                                android:baselineAligned="false">
+
+                                <LinearLayout
+                                    android:weightSum="100"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    tools:ignore="NestedWeights">
+
+                                    <RelativeLayout
+                                        android:gravity="center_horizontal"
+                                        android:layout_width="match_parent"
+                                        android:clickable="false"
+                                        android:layout_height="match_parent"
+                                        tools:ignore="UselessParent">
+
+
+                                        <com.github.lzyzsd.circleprogress.DonutProgress
+                                            android:id="@+id/prog_co2"
+                                            android:layout_width="@dimen/circle"
+                                            android:layout_height="@dimen/circle"
+                                            android:layout_centerInParent="true"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="20dp"
+                                            ProgressWheel:donut_circle_starting_degree="270"
+                                            app:donut_finished_color="@color/filtergreen"
+                                            ProgressWheel:donut_text="CO"
+                                            ProgressWheel:donut_text_color="@color/black"
+                                            android:textAlignment="center"
+                                            ProgressWheel:donut_text_size="@dimen/all_text_size"
+                                            app:donut_unfinished_color="@color/prog_bar_color"
+                                          />
+
+                                        <TextView
+                                            android:textSize="@dimen/all_text_size"
+                                            android:text="Good"
+                                            android:textColor="@color/menu_text_color"
+                                            android:id="@+id/co2_status"
+                                            android:maxLines="1"
+                                            android:ellipsize="end"
+                                            android:layout_centerHorizontal="true"
+                                            android:layout_alignParentBottom="true"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content" />
+                                    </RelativeLayout>
+
+                                </LinearLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+
+                                    <com.cloudsinc.welltekmobile.native_v2_welltek.fragments.home.circularprogressbar.CircularProgressBarDummy
+                                        android:id="@+id/NO2"
+                                        android:visibility="gone"
+                                        android:layout_marginLeft="20dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" />
+                                    <com.github.lzyzsd.circleprogress.DonutProgress
+                                        android:id="@+id/prog_no2"
+                                        android:layout_width="@dimen/circle"
+                                        android:layout_height="@dimen/circle"
+                                        android:layout_centerInParent="true"
+                                        android:layout_gravity="center"
+                                        android:layout_margin="20dp"
+                                        app:donut_unfinished_color="@color/prog_bar_color"
+                                        app:donut_finished_color="@color/filtergreen"
+                                        ProgressWheel:donut_circle_starting_degree="270"
+
+                                        ProgressWheel:donut_text="NO2"
+                                        ProgressWheel:donut_text_color="@color/black"
+                                        android:textAlignment="center"
+                                        ProgressWheel:donut_text_size="@dimen/all_text_size"
+                                      />
+
+                                    <TextView
+                                        android:textSize="@dimen/all_text_size"
+                                        android:text="Good"
+                                        android:id="@+id/no2_status"
+                                        android:textColor="@color/menu_text_color"
+                                        android:maxLines="1"
+                                        android:ellipsize="end"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+                                </RelativeLayout>
+
+                                <LinearLayout
+                                    android:weightSum="100"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:gravity="center_horizontal"
+                                        android:layout_width="match_parent"
+                                        android:clickable="false"
+                                        android:layout_height="match_parent"
+                                        tools:ignore="UselessParent">
+
+
+                                        <com.github.lzyzsd.circleprogress.DonutProgress
+                                            android:id="@+id/prog_o3"
+                                            android:layout_width="@dimen/circle"
+                                            android:layout_height="@dimen/circle"
+                                            android:layout_centerInParent="true"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="20dp"
+                                            ProgressWheel:donut_circle_starting_degree="270"
+                                            app:donut_finished_color="@color/filtergreen"
+                                            ProgressWheel:donut_text="CO"
+                                            ProgressWheel:donut_text_color="@color/black"
+                                            android:textAlignment="center"
+                                            ProgressWheel:donut_text_size="@dimen/all_text_size"
+                                            app:donut_unfinished_color="@color/prog_bar_color"
+                                          />
+
+                                        <TextView
+                                            android:textSize="@dimen/all_text_size"
+                                            android:text="Good"
+                                            android:textColor="@color/menu_text_color"
+                                            android:id="@+id/o3_status"
+                                            android:maxLines="1"
+                                            android:ellipsize="end"
+                                            android:layout_centerHorizontal="true"
+                                            android:layout_alignParentBottom="true"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content" />
+                                    </RelativeLayout>
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="5"
+                                android:clickable="false"
+                                android:orientation="horizontal"
+                                android:weightSum="3"
+                                android:baselineAligned="false">
+
+                                <LinearLayout
+                                    android:weightSum="100"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    tools:ignore="NestedWeights">
+
+                                    <RelativeLayout
+                                        android:gravity="center_horizontal"
+                                        android:layout_width="match_parent"
+                                        android:clickable="false"
+                                        android:layout_height="match_parent"
+                                        tools:ignore="UselessParent">
+
+
+                                        <com.github.lzyzsd.circleprogress.DonutProgress
+                                            android:id="@+id/prog_pm2"
+                                            android:layout_width="@dimen/circle"
+                                            android:layout_height="@dimen/circle"
+                                            android:layout_centerInParent="true"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="20dp"
+                                            ProgressWheel:donut_circle_starting_degree="270"
+                                            app:donut_finished_color="@color/filtergreen"
+                                            ProgressWheel:donut_text="PM2.5"
+                                            ProgressWheel:donut_text_color="@color/black"
+                                            android:textAlignment="center"
+                                            ProgressWheel:donut_text_size="@dimen/all_text_size"
+                                            app:donut_unfinished_color="@color/prog_bar_color"
+                                          />
+
+                                        <TextView
+                                            android:textSize="@dimen/all_text_size"
+                                            android:text="Good"
+                                            android:textColor="@color/menu_text_color"
+                                            android:id="@+id/pm2_status"
+                                            android:maxLines="1"
+                                            android:ellipsize="end"
+                                            android:layout_centerHorizontal="true"
+                                            android:layout_alignParentBottom="true"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content" />
+                                    </RelativeLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:weightSum="100"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:gravity="center_horizontal"
+                                        android:layout_width="match_parent"
+                                        android:clickable="false"
+                                        android:layout_height="match_parent"
+                                        tools:ignore="UselessParent">
+
+
+                                        <com.github.lzyzsd.circleprogress.DonutProgress
+                                            android:id="@+id/prog_pm10"
+                                            android:layout_width="@dimen/circle"
+                                            android:layout_height="@dimen/circle"
+                                            android:layout_centerInParent="true"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="20dp"
+                                            ProgressWheel:donut_circle_starting_degree="270"
+                                            app:donut_finished_color="@color/filtergreen"
+                                            ProgressWheel:donut_text="PM10"
+                                            ProgressWheel:donut_text_color="@color/black"
+                                            android:textAlignment="center"
+                                            ProgressWheel:donut_text_size="@dimen/all_text_size"
+                                            app:donut_unfinished_color="@color/prog_bar_color"
+                                          />
+
+                                        <TextView
+                                            android:textSize="@dimen/all_text_size"
+                                            android:text="Good"
+                                            android:textColor="@color/menu_text_color"
+                                            android:id="@+id/pm10_status"
+                                            android:maxLines="1"
+                                            android:ellipsize="end"
+                                            android:layout_centerHorizontal="true"
+                                            android:layout_alignParentBottom="true"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content" />
+                                    </RelativeLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:weightSum="100"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:gravity="center_horizontal"
+                                        android:layout_width="match_parent"
+                                        android:clickable="false"
+                                        android:layout_height="match_parent"
+                                        tools:ignore="UselessParent">
+
+
+                                        <com.github.lzyzsd.circleprogress.DonutProgress
+                                            android:id="@+id/prog_so2"
+                                            android:layout_width="@dimen/circle"
+                                            android:layout_height="@dimen/circle"
+                                            android:layout_centerInParent="true"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="20dp"
+                                            ProgressWheel:donut_circle_starting_degree="270"
+                                             app:donut_finished_color="@color/filtergreen"
+                                            ProgressWheel:donut_text="SO2"
+                                            ProgressWheel:donut_text_color="@color/black"
+                                            android:textAlignment="center"
+                                            ProgressWheel:donut_text_size="@dimen/all_text_size"
+                                            app:donut_unfinished_color="@color/prog_bar_color"
+                                          />
+
+                                        <TextView
+                                            android:textSize="@dimen/all_text_size"
+                                            android:text="Good"
+                                            android:textColor="@color/menu_text_color"
+                                            android:id="@+id/so2_status"
+                                            android:maxLines="1"
+                                            android:ellipsize="end"
+                                            android:layout_centerHorizontal="true"
+                                            android:layout_alignParentBottom="true"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            tools:ignore="TooManyViews" />
+                                    </RelativeLayout>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:visibility="gone"
+                            android:id="@+id/fragment_container_co2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                        </FrameLayout>
+                        <FrameLayout
+                            android:visibility="gone"
+                            android:id="@+id/fragment_container_no2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                        </FrameLayout>
+                        <FrameLayout
+                            android:visibility="gone"
+                            android:id="@+id/fragment_container_o3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                        </FrameLayout>
+                    </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/activity_main"
+            android:orientation="vertical"
+            ></LinearLayout>
+    </FrameLayout>
+    <Chronometer
+        android:visibility="gone"
+        android:id="@+id/simpleChronometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

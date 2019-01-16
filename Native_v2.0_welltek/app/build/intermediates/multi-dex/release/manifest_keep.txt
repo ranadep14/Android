@@ -1,0 +1,3 @@
+# Referenced at /home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/app/build/intermediates/manifests/full/release/AndroidManifest.xml:48
+-keep class com.cloudsinc.welltekmobile.native_v2_welltek.application.App { <init>(...); }
+

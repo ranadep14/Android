@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/customise_sub_action_bar"/>
+    <ListView
+        android:visibility="gone"
+        android:paddingRight="@dimen/actionbar_height"
+        android:paddingLeft="@dimen/actionbar_height"
+        android:id="@+id/lst_devices_setting"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+    <RelativeLayout
+        android:id="@+id/rel_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/txt_no_device"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/title_text_size"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:text="No Devices Available"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp">
+        <include  layout="@layout/custom_darwin_loading_layout"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

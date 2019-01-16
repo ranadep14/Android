@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="all_text_size_portrait">20sp</dimen>
+    <dimen name="fav_list_item_height_portrait1">120dp</dimen>
+</resources>

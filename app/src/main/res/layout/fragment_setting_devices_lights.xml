@@ -1,0 +1,575 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/fragment_bg_color"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <!-- TODO: Update blank fragment layout -->
+    <include layout="@layout/customise_sub_action_bar"/>
+    <RelativeLayout
+        android:paddingRight="@dimen/actionbar_height"
+        android:paddingLeft="@dimen/actionbar_height"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <LinearLayout
+        android:id="@+id/lin_water_air"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/txt_air_water_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:inputType="text"
+            android:text="Device Name - "
+            android:singleLine="true"
+            android:textSize="@dimen/all_text_size"
+            tools:ignore="TextViewEdits" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5sp"
+            android:background="@color/divider_color"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/installationdate"
+                android:textSize="@dimen/all_text_size"
+               />
+            <TextView
+                android:layout_alignParentRight="true"
+                android:drawableLeft="@drawable/ic_calender"
+                android:id="@+id/txt_install_date"
+                android:drawablePadding="10dp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/all_text_size"
+                android:text="@string/installationdateformat"
+                android:gravity="center_vertical"
+                />
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5sp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/divider_color" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/lin_zone"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="10"
+            >
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="UselessParent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/all_text_size"
+                        android:textColor="@color/white"
+                        android:layout_gravity="right"
+                        android:text="Zones"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:textSize="@dimen/all_text_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="right"
+                        android:gravity="bottom"
+                        android:layout_weight="1"
+                        android:text="Assigned to Zone"
+                        android:layout_marginBottom="10dp" />
+                    <TextView
+                        android:id="@+id/txt_zone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/all_text_size"
+                        android:textColor="@color/white"
+                        android:layout_gravity="right"
+                        android:text="@string/selectzone"
+                       />
+
+
+                </LinearLayout>
+                    <ImageView
+                        android:padding="6dp"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="@dimen/icon_height_size"
+                        android:layout_height="@dimen/icon_height_size"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/right_white"
+                        tools:ignore="ObsoleteLayoutParam" />
+                </RelativeLayout>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5sp"
+                android:background="@color/divider_color"
+            />
+
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/lin_sensor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/txt_sensor_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:inputType="text"
+                android:text="Device Name - "
+                android:textSize="@dimen/all_text_size"
+                tools:ignore="TextViewEdits" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5sp"
+                android:background="@color/divider_color"/>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/lin_hvac_zone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="10"
+                >
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:ignore="UselessParent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/all_text_size"
+                            android:textColor="@color/white"
+                            android:layout_gravity="right"
+                            android:text="Zones"
+                            android:layout_marginLeft="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginTop="10dp"/>
+                        <TextView
+                            android:id="@+id/txt_hvac_zone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/all_text_size"
+                            android:textColor="@color/white"
+                            android:layout_gravity="right"
+                            android:text="@string/selectzone"
+                            android:layout_marginLeft="10dp"
+
+                            android:paddingBottom="10dp"
+                            />
+
+
+                    </LinearLayout>
+                        <ImageView
+                            android:padding="6dp"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="@dimen/icon_height_size"
+                            android:layout_height="@dimen/icon_height_size"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/right_white"
+                            tools:ignore="ObsoleteLayoutParam" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5sp"
+                    android:background="@color/divider_color"
+                    />
+                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lin_sensor_room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="10"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        tools:ignore="UselessParent">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/all_text_size"
+                            android:textColor="@color/white"
+                            android:layout_gravity="right"
+                            android:text="Room"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginTop="10dp"/>
+                        <TextView
+                            android:id="@+id/txt_sensor_room"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/all_text_size"
+                            android:textColor="@color/white"
+                            android:layout_gravity="right"
+                            android:text="@string/selectroom"
+                            android:paddingBottom="10dp"
+                           />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                    <ImageView
+                        android:padding="6dp"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="@dimen/icon_height_size"
+                        android:layout_height="@dimen/icon_height_size"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/right_white"
+                        tools:ignore="ObsoleteLayoutParam" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5sp"
+                    android:background="@color/divider_color"
+                    />
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/lin_other_devices"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+        <TextView
+            android:id="@+id/txt_dev_name"
+            style="@style/AppTheme"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:singleLine="true"
+            android:inputType="text"
+            android:textSize="@dimen/all_text_size"
+            tools:ignore="TextViewEdits" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5sp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/divider_color" />
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/setting_item_size"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/AppTheme"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:visibility="gone"
+
+                android:gravity="center_vertical"
+                android:text="Device Name:"
+                android:textSize="@dimen/all_text_size" />
+
+            <EditText
+                android:id="@+id/edt_DevName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:layout_weight="0.9"
+                android:maxLines="1"
+                android:inputType="text"
+                android:hint="Enter Device Name Here"
+                android:textSize="@dimen/all_text_size" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/roomlyt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:baselineAligned="false">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="3"
+                    android:orientation="vertical"
+                    android:padding="0dp"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:visibility="gone"
+                        android:textColor="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:gravity="bottom"
+                        android:text="Assigned To Room"
+                        android:textSize="@dimen/all_text_size"
+                        tools:ignore="NestedWeights" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/all_text_size"
+                            android:textColor="@color/white"
+                            android:layout_gravity="right"
+                            android:text="Room"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginTop="10dp"/>
+                        <TextView
+                            android:layout_marginBottom="20dp"
+                            android:textColor="@color/white"
+                            android:gravity="center_vertical"
+                            android:id="@+id/txt_room"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="right"
+                            android:layout_weight="1"
+                            android:text="@string/selectroom"
+                            android:textSize="@dimen/all_text_size" />
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="7">
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:padding="6dp"
+                    android:layout_width="@dimen/icon_height_size"
+                    android:layout_height="@dimen/icon_height_size"
+                    app:srcCompat="@drawable/right_white"
+                    android:layout_alignParentRight="true"
+
+                    />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5sp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/divider_color" />
+        <LinearLayout
+            android:id="@+id/lin_scence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:padding="0dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:visibility="gone"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:text="Scences"
+                    android:textSize="@dimen/all_text_size"
+                    tools:ignore="NestedWeights" />
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/all_text_size"
+                        android:textColor="@color/white"
+                        android:layout_gravity="right"
+                        android:text="Scenes"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:layout_marginTop="10dp"/>
+                <TextView
+                    android:textColor="@color/white"
+                    android:id="@+id/txt_scenes"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:text="@string/selectscence"
+                    android:textSize="@dimen/all_text_size" />
+                    </LinearLayout>
+
+
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="7">
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:padding="6dp"
+                    android:layout_width="@dimen/icon_height_size"
+                    android:layout_height="@dimen/icon_height_size"
+                    app:srcCompat="@drawable/right_white"
+                    android:layout_alignParentRight="true"
+
+                    />
+
+
+            </RelativeLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5sp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/divider_color" />
+        </LinearLayout>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+    </RelativeLayout>
+</LinearLayout>

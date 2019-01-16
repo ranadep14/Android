@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="NPTP_NumberPadTimePicker_FabStyle" parent="NPTP_NumberPadTimePicker_Base_FabStyle">
+        <item name="android:layout_width">@dimen/nptp_bottom_sheet_grid_picker_fab_size_large</item>
+        <item name="android:layout_height">@dimen/nptp_bottom_sheet_grid_picker_fab_size_large</item>
+    </style>
+
+</resources>

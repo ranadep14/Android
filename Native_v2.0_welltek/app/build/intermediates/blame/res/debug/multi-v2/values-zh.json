@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh/values-zh.xml",
+            "map": [
+                {
+                    "source": "/home/developers/.gradle/caches/transforms-1/files-1.1/library-1.3.4.aar/3bb981dfa1579677cdf12942e7aeb77b/res/values-zh/values-zh.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "39",
+                        "endOffsets": "90"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/developers/JDWorkspace_backup/Welltek/8 JAn/Native_v2.0_welltek/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh/values-zh.xml",
+            "map": [
+                {
+                    "source": "/home/developers/.gradle/caches/transforms-1/files-1.1/library-1.3.4.aar/3bb981dfa1579677cdf12942e7aeb77b/res/values-zh/values-zh.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "39",
+                        "endOffsets": "90"
+                    }
+                }
+            ]
+        }
+    ]
+}

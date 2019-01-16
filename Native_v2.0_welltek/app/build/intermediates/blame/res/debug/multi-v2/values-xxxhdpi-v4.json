@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/developers/JDWorkspace_backup/Welltek/8 JAn/Native_v2.0_welltek/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-xxxhdpi-v4/values-xxxhdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/home/developers/.gradle/caches/transforms-1/files-1.1/crystalrangeseekbar-1.1.3.aar/603bcc2f8bc690d87fb541de5cfdf5bc/res/values-xxxhdpi-v4/values-xxxhdpi-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,106,156,200",
+                        "endColumns": "50,49,43,42",
+                        "endOffsets": "101,151,195,238"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/developers/Documents/AndroidJD/HappyNewYear/Native_v2.0_welltek/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-xxxhdpi-v4/values-xxxhdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/home/developers/.gradle/caches/transforms-1/files-1.1/crystalrangeseekbar-1.1.3.aar/603bcc2f8bc690d87fb541de5cfdf5bc/res/values-xxxhdpi-v4/values-xxxhdpi-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,106,156,200",
+                        "endColumns": "50,49,43,42",
+                        "endOffsets": "101,151,195,238"
+                    }
+                }
+            ]
+        }
+    ]
+}

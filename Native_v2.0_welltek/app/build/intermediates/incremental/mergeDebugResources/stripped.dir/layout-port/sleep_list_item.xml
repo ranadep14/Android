@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fragment_back_color"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            android:baselineAligned="false">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="4.25">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    app:srcCompat="@drawable/sleep_new"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="2"
+                android:orientation="vertical"
+                android:layout_weight="0.1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="5"
+                    android:layout_weight="1"
+
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/txt_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.25"
+                        android:gravity="left|bottom"
+                        android:paddingBottom="5dp"
+                        android:text="16:30 am"
+                        android:paddingLeft="10dp"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/ch3"
+                        android:textColor="@color/white"
+                        tools:ignore="NestedWeights" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:id="@+id/btn_edit_sleep"
+                        android:text="Edit"
+                        android:layout_weight="2.1"
+                        android:layout_gravity="center_horizontal"
+                        android:textAllCaps="false"
+                        android:paddingTop="15dp"
+                        android:textColor="@color/white"
+                        android:gravity="center|right"/>
+                    <Switch
+                        android:id="@+id/swt_on_off"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:checked="true"
+                        android:paddingTop="5dp"
+                        android:paddingRight="10dp"
+                        android:thumb="@drawable/on_off_thumb"
+                        android:layout_gravity="left"
+                        android:layout_weight="2"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:weightSum="5"
+                    android:layout_weight="0.1"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingLeft="10dp"
+                        android:id="@+id/txt_room_and_days"
+                        android:textSize="@dimen/all_text_size"
+                        android:maxLines="2"
+                        android:textColor="@color/off_white_text"
+                        android:text="Mon, Tue, Wed, Thu, Fri,sat,sun"
+                        android:gravity="left|top"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.4dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/off_white_text"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="start"
+        android:visibility="gone"
+        >
+        <LinearLayout
+
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:weightSum="3"
+            android:baselineAligned="false">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.5"
+                android:padding="10dp"
+                android:weightSum="3"
+                tools:ignore="UselessParent">
+                <TextView
+                    android:id="@+id/txt_id"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="25dp"
+                    tools:ignore="NestedWeights" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="WAKE UP"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_visiblity"
+            android:layout_width="170dp"
+            android:layout_height="160dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:background="@drawable/circular_border_transpernt"/>
+    </RelativeLayout>
+
+
+
+</LinearLayout>
