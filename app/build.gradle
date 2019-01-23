@@ -117,6 +117,7 @@ android {
     }
      lintOptions {
           abortOnError false
+          lintConfig file("/var/lib/jenkins/tools/android-sdk/extras/google/google_play_services/samples/drive/conflictdemo/lint.xml")
       }
 
 }
