@@ -38,13 +38,13 @@ android {
         androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
             exclude group: 'com.android.support', module: 'support-annotations'
         })
-        compile('io.socket:socket.io-client:1.0.0') {
+        implementation('io.socket:socket.io-client:1.0.0') {
             // excluding org.json which is provided by Android
             exclude group: 'org.json', module: 'json'
         }
 
         //releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-        compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        implementation('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
             transitive = true
         }
         implementation 'com.google.android.gms:play-services-analytics:10.2.4'
